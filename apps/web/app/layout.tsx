@@ -3,7 +3,7 @@ import '@workspace/ui/globals.css'
 import { cn } from '@workspace/ui/lib/utils'
 import { Geist, Geist_Mono } from 'next/font/google'
 
-import { Providers } from '@/components/providers'
+import { ThemeProvider } from '@/providers/theme'
 
 const fontSans = Geist({
   subsets: ['latin'],
@@ -29,7 +29,7 @@ export default function RootLayout({
           fontMono.variable
         )}
       >
-        <Providers>{children}</Providers>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   )
