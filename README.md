@@ -15,3 +15,7 @@ Blackhead is a vulnerability detection and penetration testing system with autom
 - **🐌 Turborepo** - System for managing multi-package repositories with ease
 - **🦄 Next.js** - React framework for building web applications
 - **🦊 Nest.js** - A progressive Node.js framework for building efficient, reliable, and scalable server-side applications
+- **🐧 Prisma** - Next-generation ORM for Node.js and TypeScript
+- **🐘 Postgres** - A powerful, open-source object-relational database system
+- **🦖 Biome** - A one toolchain for all your needs
+- **🐥 Ultracite** - A robust linting configuration for modern JavaScript projects with Biome
