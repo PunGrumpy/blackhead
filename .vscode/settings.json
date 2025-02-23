@@ -23,6 +23,6 @@
   "editor.formatOnSave": true,
   "emmet.showExpandedAbbreviation": "never",
   "prettier.enable": false,
-  "tailwindCSS.experimental.configFile": "./packages/tailwind-config/config.ts",
+  "tailwindCSS.experimental.configFile": "./packages/ui/tailwind.config.js",
   "typescript.tsdk": "node_modules/typescript/lib"
 }
