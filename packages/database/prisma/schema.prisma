@@ -1,0 +1,92 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+  output          = "../generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  ADMIN
+  AUDITOR
+  USER
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  firstName String
+  lastName  String
+  role      UserRole @default(USER)
+  scans     Scan[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Scan {
+  id              String          @id @default(uuid())
+  target          String
+  status          ScanStatus      @default(PENDING)
+  riskScore       Float?
+  userId          String
+  user            User            @relation(fields: [userId], references: [id])
+  vulnerabilities Vulnerability[]
+  reports         Report[]
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  @@map("scans")
+}
+
+enum ScanStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  FAILED
+}
+
+enum SeverityLevel {
+  CRITICAL
+  HIGH
+  MEDIUM
+  LOW
+}
+
+model Vulnerability {
+  id          String        @id @default(uuid())
+  type        String
+  severity    SeverityLevel
+  description String
+  remediation String
+  cvssScore   Float
+  scanId      String
+  scan        Scan          @relation(fields: [scanId], references: [id])
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@map("vulnerabilities")
+}
+
+model Report {
+  id              String   @id @default(uuid())
+  scanId          String
+  scan            Scan     @relation(fields: [scanId], references: [id])
+  summary         Json
+  recommendations Json
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("reports")
+}
