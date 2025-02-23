@@ -8,18 +8,16 @@
     "bump-ui": "pnpm dlx shadcn@latest add --all --overwrite -c packages/ui",
     "clean": "git clean -xdf node_modules",
     "dev": "turbo dev",
-    "format": "prettier --write \"**/*.{js,ts,tsx,md,json}\"",
-    "lint": "turbo lint",
-    "lint:fix": "turbo lint:fix"
+    "format": "ultracite format",
+    "lint": "ultracite lint",
+    "migrate": "cd packages/database && pnpm dlx prisma format && pnpm dlx prisma generate && pnpm dlx prisma db push"
   },
   "devDependencies": {
-    "@workspace/eslint-config": "workspace:*",
+    "@biomejs/biome": "^1.9.4",
     "@workspace/typescript-config": "workspace:*",
-    "prettier": "^3.5.2",
-    "prettier-plugin-packagejson": "^2.5.8",
-    "prettier-plugin-tailwindcss": "^0.6.11",
     "turbo": "^2.4.2",
-    "typescript": "5.7.3"
+    "typescript": "5.7.3",
+    "ultracite": "^4.1.20"
   },
   "packageManager": "pnpm@10.4.1",
   "engines": {
@@ -27,9 +25,14 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
+      "@biomejs/biome",
       "@nestjs/core",
+      "@prisma/client",
+      "@prisma/engines",
       "@swc/core",
       "core-js-pure",
+      "esbuild",
+      "prisma",
       "sharp"
     ]
   }

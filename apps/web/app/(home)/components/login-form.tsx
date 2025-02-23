@@ -13,7 +13,7 @@ export function LoginForm() {
           <Image src="/icon.png" alt="Blackhead Logo" width={50} height={50} />
         </div>
         <div className="space-y-2">
-          <h2 className="text-3xl font-medium tracking-tight">
+          <h2 className="font-medium text-3xl tracking-tight">
             Sign in with your account
           </h2>
           <p className="text-muted-foreground text-sm">
@@ -39,7 +39,7 @@ export function LoginForm() {
           <Separator className="w-full" />
         </div>
         <div className="relative flex justify-center">
-          <span className="bg-background text-muted-foreground px-2 text-xs uppercase">
+          <span className="bg-background px-2 text-muted-foreground text-xs uppercase">
             Or continue with
           </span>
         </div>
@@ -51,14 +51,17 @@ export function LoginForm() {
         </div>
         <div className="relative">
           <Input type="password" placeholder="Password" className="bg-muted" />
-          <button className="text-muted-foreground hover:text-foreground absolute right-3 top-1/2 -translate-y-1/2">
+          <button
+            type="button"
+            className="-translate-y-1/2 absolute top-1/2 right-3 text-muted-foreground hover:text-foreground"
+          >
             <Eye className="size-5" />
           </button>
         </div>
         <Button className="w-full">Log in</Button>
       </div>
 
-      <div className="text-muted-foreground text-center text-sm">
+      <div className="text-center text-muted-foreground text-sm">
         <Link href="#" className="hover:text-muted-foreground/80">
           Privacy policy
         </Link>

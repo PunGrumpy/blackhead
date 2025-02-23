@@ -81,6 +81,7 @@
   }
   html {
     @apply scroll-smooth;
+    text-rendering: optimizelegibility;
   }
   body {
     @apply bg-background text-foreground overscroll-none;
@@ -89,9 +90,11 @@
     text-rendering: optimizeLegibility;
   }
 
-  @supports (font: -apple-system-body) and (-webkit-appearance: none) {
-    [data-wrapper] {
-      @apply min-[1800px]:border-t;
+  @supports (font: -apple-system-body, sans-serif) {
+    @supports (-webkit-appearance: none) {
+      [data-wrapper] {
+        @apply min-[1800px]:border-t;
+      }
     }
   }
 

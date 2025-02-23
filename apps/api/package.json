@@ -7,8 +7,6 @@
     "clean": "git clean -xdf dist node_modules",
     "debug": "nest start --debug --watch",
     "dev": "nest start --watch",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
-    "lint:fix": "eslint --fix \"{src,apps,libs,test}/**/*.ts\"",
     "start": "nest start",
     "start:prod": "node dist/main"
   },

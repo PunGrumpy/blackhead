@@ -8,6 +8,11 @@
     "moduleResolution": "Bundler",
     "allowJs": true,
     "jsx": "preserve",
-    "noEmit": true
-  }
+    "noEmit": true,
+    "paths": {
+      "@/*": ["./*"],
+      "@workspace/*": ["../../packages/*"]
+    }
+  },
+  "exclude": ["node_modules"]
 }

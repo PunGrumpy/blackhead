@@ -1,12 +1,17 @@
 {
-  "extends": "@workspace/typescript-config/react-library.json",
+  "extends": "@workspace/typescript-config/nextjs.json",
   "compilerOptions": {
-    //"outDir": "dist"
     "baseUrl": ".",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "paths": {
-      "@workspace/ui/*": ["./src/*"]
+      "@workspace/*": ["../*"],
+      "@workspace/ui/*": ["./*"]
     }
   },
-  "include": ["."],
-  "exclude": ["node_modules", "dist"]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
