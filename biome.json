@@ -22,8 +22,7 @@
     "ignore": [
       "packages/ui/src/components/**",
       "packages/ui/src/lib/**",
-      "packages/ui/src/hooks/**",
-      "packages/database/generated/**"
+      "packages/ui/src/hooks/**"
     ]
   }
 }

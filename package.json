@@ -10,7 +10,7 @@
     "dev": "turbo dev",
     "format": "ultracite format",
     "lint": "ultracite lint",
-    "migrate": "cd packages/database && pnpm dlx prisma format && pnpm dlx prisma generate && pnpm dlx prisma db push"
+    "migrate": "cd apps/api && pnpm dlx prisma format && pnpm dlx prisma generate && pnpm dlx prisma db push"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
