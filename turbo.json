@@ -6,18 +6,10 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build", "test"],
-      "outputs": [
-        ".next/**",
-        "!.next/cache/**",
-        ".basehub/**",
-        "**/generated/**"
-      ]
+      "outputs": [".next/**", "!.next/cache/**", "**/generated/**"]
     },
     "lint": {
       "dependsOn": ["^lint"]
-    },
-    "lint:fix": {
-      "dependsOn": ["^lint:fix"]
     },
     "dev": {
       "cache": false,
