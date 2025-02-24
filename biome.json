@@ -9,13 +9,20 @@
   "javascript": {
     "globals": ["Liveblocks"],
     "parser": {
-      "unsafeParameterDecoratorsEnabled": false
+      "unsafeParameterDecoratorsEnabled": true
     },
     "formatter": {
       "arrowParentheses": "asNeeded",
       "quoteStyle": "single",
       "semicolons": "asNeeded",
       "trailingCommas": "none"
+    }
+  },
+  "linter": {
+    "rules": {
+      "style": {
+        "useImportType": "off"
+      }
     }
   },
   "files": {
