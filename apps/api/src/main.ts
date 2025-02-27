@@ -1,11 +1,12 @@
-import { Logger } from '@nestjs/common'
+import { Logger, ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import { apiReference } from '@scalar/nestjs-api-reference'
+import helmet from 'helmet'
 import { AppModule } from './app.module'
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule)
+  const app = await NestFactory.create(AppModule, { cors: true })
 
   const projectName = 'Blackhead'
   const projectDescription =
@@ -15,11 +16,26 @@ async function bootstrap() {
   const port = process.env.PORT || 3001
 
   app.setGlobalPrefix(globalPrefix)
+  // biome-ignore lint/correctness/useHookAtTopLevel: <explanation>
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true
+    })
+  )
+  app.use(
+    helmet({
+      contentSecurityPolicy: false
+    })
+  )
 
   const config = new DocumentBuilder()
     .setTitle(projectName)
     .setDescription(projectDescription)
     .setVersion('1.0')
+    .addTag('API Documentation')
+    .addBearerAuth()
     .build()
   const document = SwaggerModule.createDocument(app, config)
 

@@ -10,7 +10,8 @@
     "dev": "turbo dev",
     "format": "ultracite format",
     "lint": "ultracite lint",
-    "migrate": "cd apps/api && pnpm dlx prisma format && pnpm dlx prisma generate && pnpm dlx prisma db push"
+    "migrate": "cd apps/api && pnpm dlx prisma format && pnpm dlx prisma generate && pnpm dlx prisma db push",
+    "postinstall": "cd apps/api && pnpm dlx prisma generate"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
