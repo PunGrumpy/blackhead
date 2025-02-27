@@ -9,7 +9,7 @@
   "javascript": {
     "globals": ["Liveblocks"],
     "parser": {
-      "unsafeParameterDecoratorsEnabled": false
+      "unsafeParameterDecoratorsEnabled": true
     },
     "formatter": {
       "arrowParentheses": "asNeeded",
@@ -18,12 +18,18 @@
       "trailingCommas": "none"
     }
   },
+  "linter": {
+    "rules": {
+      "style": {
+        "useImportType": "off"
+      }
+    }
+  },
   "files": {
     "ignore": [
       "packages/ui/src/components/**",
       "packages/ui/src/lib/**",
-      "packages/ui/src/hooks/**",
-      "packages/database/generated/**"
+      "packages/ui/src/hooks/**"
     ]
   }
 }
