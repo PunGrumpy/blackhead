@@ -7,7 +7,7 @@
     "lint": "ultracite lint",
     "format": "ultracite format",
     "typecheck": "turbo run typecheck",
-    "bump-deps": "bunx --bun npm-check-updates --deep -u -x react-day-picker,tailwindcss && pnpm install",
+    "bump-deps": "bunx --bun npm-check-updates --deep -u && bun install",
     "bump-ui": "bunx --bun shadcn@canary add --all --overwrite -c packages/ui",
     "clean": "git clean -xdf node_modules"
   },
@@ -19,7 +19,7 @@
     "ultracite": "^4.1.20"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   },
   "packageManager": "bun@1.2.4",
   "workspaces": ["apps/*", "packages/*"]
