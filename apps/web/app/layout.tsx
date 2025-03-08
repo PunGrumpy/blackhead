@@ -1,3 +1,4 @@
+import { DesignSystemProvider } from '@repo/ui'
 import '@repo/ui/globals.css'
 import { cn } from '@repo/ui/lib/utils'
 
@@ -34,7 +35,7 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           'font-sans antialiased',
@@ -42,7 +43,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           geistMono.variable
         )}
       >
-        {children}
+        <DesignSystemProvider>{children}</DesignSystemProvider>
       </body>
     </html>
   )
