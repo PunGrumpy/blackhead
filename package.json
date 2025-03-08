@@ -6,9 +6,10 @@
     "dev": "turbo run dev",
     "lint": "ultracite lint",
     "format": "ultracite format",
-    "check-types": "turbo run check-types",
+    "typecheck": "turbo run typecheck",
     "bump-deps": "bunx --bun npm-check-updates --deep -u -x react-day-picker,tailwindcss && pnpm install",
-    "bump-ui": "bunx --bun shadcn@canary add --all --overwrite -c packages/ui"
+    "bump-ui": "bunx --bun shadcn@canary add --all --overwrite -c packages/ui",
+    "clean": "git clean -xdf node_modules"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
