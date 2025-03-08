@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss'
 import tailwindcssAnimate from 'tailwindcss-animate'
 
-const config = {
+export const config = {
   darkMode: ['class'],
   content: [
     'app/**/*.{ts,tsx}',
