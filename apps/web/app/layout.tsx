@@ -1,4 +1,5 @@
 import '@repo/ui/globals.css'
+import { cn } from '@repo/ui/lib/utils'
 
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
@@ -34,7 +35,13 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body
+        className={cn(
+          'font-sans antialiased',
+          geistSans.variable,
+          geistMono.variable
+        )}
+      >
         {children}
       </body>
     </html>
