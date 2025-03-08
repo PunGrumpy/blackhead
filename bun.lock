@@ -5,6 +5,7 @@
       "name": "blackhead",
       "devDependencies": {
         "@biomejs/biome": "^1.9.4",
+        "@repo/typescript-config": "*",
         "prettier": "^3.5.3",
         "turbo": "^2.4.4",
         "typescript": "5.8.2",

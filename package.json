@@ -12,6 +12,7 @@
     "clean": "git clean -xdf node_modules"
   },
   "devDependencies": {
+    "@repo/typescript-config": "*",
     "@biomejs/biome": "^1.9.4",
     "prettier": "^3.5.3",
     "turbo": "^2.4.4",
