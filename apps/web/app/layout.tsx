@@ -1,4 +1,4 @@
-import '@repo/ui/styles/globals.css'
+import '@repo/ui/globals.css'
 
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
@@ -10,7 +10,7 @@ const geistSans = Geist({
   fallback: ['ui-sans-serif', 'system-ui'],
   preload: true,
   subsets: ['latin'],
-  variable: '--font-geist-sans'
+  variable: '--font-sans'
 })
 
 const geistMono = Geist_Mono({
@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
   fallback: ['ui-monospace', 'monospace'],
   preload: true,
   subsets: ['latin'],
-  variable: '--font-geist-mono'
+  variable: '--font-mono'
 })
 
 export const metadata: Metadata = {

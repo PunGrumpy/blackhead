@@ -8,7 +8,7 @@
     "format": "ultracite format",
     "check-types": "turbo run check-types",
     "bump-deps": "bunx --bun npm-check-updates --deep -u -x react-day-picker,tailwindcss && pnpm install",
-    "bump-ui": "bunx --bun shadcn@latest add --all --overwrite -c packages/ui"
+    "bump-ui": "bunx --bun shadcn@canary add --all --overwrite -c packages/ui"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
