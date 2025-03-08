@@ -1,8 +1,22 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
   "extends": ["ultracite"],
+  "formatter": {
+    "bracketSpacing": true,
+    "lineEnding": "lf",
+    "indentWidth": 2
+  },
   "javascript": {
-    "globals": ["Liveblocks"]
+    "globals": ["Liveblocks"],
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
+    },
+    "formatter": {
+      "arrowParentheses": "asNeeded",
+      "quoteStyle": "single",
+      "semicolons": "asNeeded",
+      "trailingCommas": "none"
+    }
   },
   "files": {
     "ignore": [
