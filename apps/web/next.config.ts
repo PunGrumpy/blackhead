@@ -6,7 +6,15 @@ const nextConfig: NextConfig = {
   output:
     process.env.NEXT_OUTPUT_MODE === 'standalone' ? 'standalone' : undefined,
   // Include files from the root of the monorepo
-  outputFileTracingRoot: path.join(__dirname, '../../')
+  outputFileTracingRoot: path.join(__dirname, '../../'),
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'placehold.co'
+      }
+    ]
+  }
 }
 
 export default nextConfig
