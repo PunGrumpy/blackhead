@@ -35,6 +35,7 @@
       "dependencies": {
         "@repo/observability": "*",
         "@repo/ui": "*",
+        "@t3-oss/env-nextjs": "^0.12.0",
         "lucide-react": "^0.479.0",
         "motion": "^12.4.10",
         "next": "^15.2.1",
