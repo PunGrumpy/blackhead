@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@repo/ui": "*",
+    "@repo/observability": "*",
     "lucide-react": "^0.479.0",
     "motion": "^12.4.10",
     "next": "^15.2.1",

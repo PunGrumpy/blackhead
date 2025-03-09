@@ -1,4 +1,5 @@
 import { FooterNavigationItems } from '@/lib/navigation'
+import { Status } from '@repo/observability/status'
 import { cn } from '@repo/ui/lib/utils'
 import { ViewAnimation } from '@repo/ui/providers/view-animation'
 import Link from 'next/link'
@@ -60,7 +61,7 @@ export const Footer = () => {
             whileInView={{ opacity: 1, translateY: 0 }}
             delay={0.4}
           >
-            Status
+            <Status />
           </ViewAnimation>
 
           <div className="flex items-center justify-center">
