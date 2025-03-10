@@ -7,6 +7,7 @@ interface ViewAnimationProps {
   initial?: Record<string, string | number>
   whileInView?: Record<string, string | number>
   animate?: Record<string, string | number>
+  exit?: Record<string, string | number>
   delay?: number
   // className?: ComponentProps<typeof motion.div>['className'];
   className?: string
@@ -17,6 +18,7 @@ export const ViewAnimation = ({
   initial,
   whileInView,
   animate,
+  exit,
   delay = 0,
   className,
   children
@@ -29,9 +31,10 @@ export const ViewAnimation = ({
 
   return (
     <motion.div
-      initial={{ filter: 'blur(4px)', ...initial }}
-      whileInView={{ filter: 'blur(0px)', ...whileInView }}
+      initial={{ filter: 'opacity(0)', ...initial }}
+      whileInView={{ filter: 'opacity(1)', ...whileInView }}
       animate={animate}
+      exit={exit}
       className={className}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ delay, duration: 0.8 }}
