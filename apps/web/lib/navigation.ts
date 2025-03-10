@@ -1,10 +1,17 @@
+import type { ReactNode } from 'react'
+
 export interface NavigationItemsProps {
   title: string
   href?: string
   description?: string
+  categoryTitle?: string
+  secondCategoryTitle?: string
   items?: {
     title: string
     href: string
+    description?: string
+    category?: string
+    icon?: ReactNode
   }[]
 }
 
@@ -13,15 +20,33 @@ export const NavigationItems: NavigationItemsProps[] = [
   { title: 'Testimonials', href: '/testimonials', description: '' },
   {
     title: 'Product',
-    description: 'Managing a small business today is already tough',
+    description: 'Complete platform for the web',
+    categoryTitle: 'Use Cases',
+    secondCategoryTitle: 'Users',
     items: [
       {
-        title: 'Pricing',
-        href: '/pricing'
+        title: 'AI Apps',
+        href: '/ai-apps',
+        description: 'Deploy at the speed of AI',
+        category: 'use-cases'
       },
       {
-        title: 'Features',
-        href: '/features'
+        title: 'Composable Commerce',
+        href: '/commerce',
+        description: 'Power storefronts that convert',
+        category: 'use-cases'
+      },
+      {
+        title: 'Platform Engineers',
+        href: '/platform-engineers',
+        description: 'Automate away repetition',
+        category: 'users'
+      },
+      {
+        title: 'Design Engineers',
+        href: '/design-engineers',
+        description: 'Deploy for every idea',
+        category: 'users'
       }
     ]
   }
