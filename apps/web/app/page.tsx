@@ -4,7 +4,7 @@ import {} from 'lucide-react'
 
 export default function HomePage() {
   return (
-    <Section className="border-b p-10">
+    <Section className="border-y p-10">
       <div className="flex flex-col gap-8 sm:items-center">
         <h1 className="text-center font-bold text-2xl sm:text-4xl lg:text-5xl">
           Blackhead

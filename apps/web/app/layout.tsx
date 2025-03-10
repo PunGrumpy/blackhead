@@ -47,7 +47,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         <DesignSystemProvider>
           <Header />
-          <div className="mx-auto h-32 max-w-[1080px] border-b" />
+          <div className="h-32" />
           <main className="divide-y">{children}</main>
           <Footer />
         </DesignSystemProvider>
