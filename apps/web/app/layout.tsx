@@ -2,11 +2,11 @@ import { DesignSystemProvider } from '@repo/ui'
 import '@repo/ui/globals.css'
 import { cn } from '@repo/ui/lib/utils'
 
+import { Footer } from '@/components/footer'
+import { Header } from '@/components/header'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import type { ReactNode } from 'react'
-import { Footer } from './components/footer'
-import { Header } from './components/header'
 
 const geistSans = Geist({
   adjustFontFallback: true,
