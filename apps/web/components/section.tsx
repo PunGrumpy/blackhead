@@ -3,9 +3,9 @@ import type { HTMLAttributes, ReactNode } from 'react'
 
 const Cross = () => {
   return (
-    <div className="relative grid h-6 w-6 self-center">
-      <div className="absolute h-6 w-3 border-muted-foreground border-r" />
-      <div className="absolute h-3 w-6 border-muted-foreground border-b" />
+    <div className="relative grid h-4 w-4 self-center md:h-5 md:w-5">
+      <div className="absolute h-4 w-2 border-muted-foreground border-r md:h-5 md:w-2.5" />
+      <div className="absolute h-2 w-4 border-muted-foreground border-b md:h-2.5 md:w-5" />
     </div>
   )
 }
@@ -20,7 +20,7 @@ export const Section = ({ children, className, ...props }: SectionProps) => {
     <section {...props} className="mx-4">
       <div className="relative mx-auto max-w-[1080px]">
         <div className={cn('border-x', className)}>{children}</div>
-        <div className="-top-3 -left-3 absolute z-10 hidden h-6 sm:block">
+        <div className="-top-2 -left-2 md:-top-2.5 md:-left-2.5 absolute z-10 block">
           <Cross />
         </div>
       </div>
