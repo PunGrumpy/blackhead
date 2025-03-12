@@ -16,7 +16,6 @@ import { MoveRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
-import Logo from './logo.svg'
 import { MobileMenu } from './mobile-menu'
 
 export const Header = () => {
@@ -33,14 +32,13 @@ export const Header = () => {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <div className="flex items-center space-x-6">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="relative h-8 w-8 overflow-hidden rounded-full bg-primary">
-              <div className="absolute inset-0 flex items-center justify-center font-bold text-lg text-primary-foreground">
+            <div className="relative h-8 w-8 overflow-hidden">
+              <div className="absolute inset-0 flex items-center justify-center font-bold text-lg">
                 <Image
-                  src={Logo}
+                  src="/logo.svg"
                   alt="Blackhead Logo"
                   width={32}
                   height={32}
-                  className="dark:invert"
                 />
               </div>
             </div>
@@ -69,7 +67,7 @@ export const Header = () => {
                           <div className="grid grid-cols-2 gap-0">
                             <div className="p-4">
                               <h3 className="mb-2 font-medium text-sm">
-                                {item.categoryTitle || 'Use Cases'}
+                                {item.categories?.primary || 'Use Cases'}
                               </h3>
                               <div className="grid gap-2">
                                 {item.items
@@ -99,7 +97,7 @@ export const Header = () => {
                             </div>
                             <div className="p-4">
                               <h3 className="mb-2 font-medium text-sm">
-                                {item.secondCategoryTitle || 'Users'}
+                                {item.categories?.secondary || 'Users'}
                               </h3>
                               <div className="grid gap-2">
                                 {item.items

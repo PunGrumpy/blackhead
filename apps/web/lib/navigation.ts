@@ -4,25 +4,31 @@ export interface NavigationItemsProps {
   title: string
   href?: string
   description?: string
-  categoryTitle?: string
-  secondCategoryTitle?: string
-  items?: {
-    title: string
-    href: string
-    description?: string
-    category?: string
-    icon?: ReactNode
-  }[]
+  categories?: {
+    primary?: string
+    secondary?: string
+  }
+  items?: NavigationItemChild[]
+}
+
+export interface NavigationItemChild {
+  title: string
+  href: string
+  description?: string
+  category?: string
+  icon?: ReactNode
 }
 
 export const NavigationItems: NavigationItemsProps[] = [
-  { title: 'Home', href: '/', description: '' },
-  { title: 'Testimonials', href: '/testimonials', description: '' },
+  { title: 'Home', href: '/' },
+  { title: 'Testimonials', href: '/testimonials' },
   {
     title: 'Product',
     description: 'Complete platform for the web',
-    categoryTitle: 'Use Cases',
-    secondCategoryTitle: 'Users',
+    categories: {
+      primary: 'Use Cases',
+      secondary: 'Users'
+    },
     items: [
       {
         title: 'AI Apps',
@@ -54,28 +60,50 @@ export const NavigationItems: NavigationItemsProps[] = [
 
 export const FooterNavigationItems: NavigationItemsProps[] = [
   {
-    title: 'Product',
+    title: 'Products',
     items: [
-      { title: 'Features', href: '/features' },
-      { title: 'Pricing', href: '/pricing' },
-      { title: 'Integrations', href: '/integrations' },
-      { title: 'Changelog', href: '/changelog' }
+      { title: 'Enterprise', href: '/enterprise' },
+      { title: 'Fluid Compute', href: '/fluid-compute' },
+      { title: 'Next.js', href: '/nextjs' },
+      { title: 'Observability', href: '/observability' },
+      { title: 'Previews', href: '/previews' },
+      { title: 'Rendering', href: '/rendering' },
+      { title: 'Security', href: '/security' }
     ]
   },
   {
     title: 'Resources',
     items: [
-      { title: 'Blog', href: '/blog' },
-      { title: 'Documentation', href: '/documentation' },
-      { title: 'Support', href: '/support' }
+      { title: 'Community', href: '/community' },
+      { title: 'Docs', href: '/docs' },
+      { title: 'Guides', href: '/guides' },
+      { title: 'Help', href: '/help' },
+      { title: 'Integrations', href: '/integrations' },
+      { title: 'Pricing', href: '/pricing' },
+      { title: 'Resources', href: '/resources' }
     ]
   },
   {
     title: 'Company',
     items: [
       { title: 'About', href: '/about' },
+      { title: 'Blog', href: '/blog' },
       { title: 'Careers', href: '/careers' },
-      { title: 'Contact', href: '/contact' }
+      { title: 'Changelog', href: '/changelog' },
+      { title: 'Contact Us', href: '/contact-us' },
+      { title: 'Customers', href: '/customers' },
+      { title: 'Partners', href: '/partners' },
+      { title: 'Privacy Policy', href: '/privacy-policy' },
+      { title: 'Legal', href: '/legal' }
+    ]
+  },
+  {
+    title: 'Social',
+    items: [
+      { title: 'GitHub', href: 'https://github.com' },
+      { title: 'Twitter', href: 'https://twitter.com' },
+      { title: 'Discord', href: 'https://discord.com' },
+      { title: 'YouTube', href: 'https://youtube.com' }
     ]
   }
 ]
