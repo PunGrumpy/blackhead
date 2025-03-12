@@ -1,11 +1,12 @@
 import { FooterNavigationItems } from '@/lib/navigation'
 import { Status } from '@repo/observability/status'
+import { ThemeSwitcher } from '@repo/ui/components/theme-toggle'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export const Footer = () => {
   return (
-    <footer className="w-full bg-background">
+    <footer className="mx-4 bg-background">
       <nav aria-label="Blackhead Directory">
         <div className="mx-auto flex max-w-[1080px] flex-col gap-4 py-8 sm:gap-16 sm:py-16">
           <div className="grid w-full grid-cols-[repeat(4,_1fr)_80px]">
@@ -44,31 +45,10 @@ export const Footer = () => {
             </div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-2">
             <Status />
-
-            <div className="flex items-center justify-center">
-              <p className="whitespace-nowrap text-muted-foreground text-sm">
-                &copy; {new Date().getFullYear()} Blackhead. All rights
-                reserved.
-              </p>
-            </div>
-
-            <div className="flex items-center gap-4 sm:justify-end">
-              <div className="flex space-x-4">
-                <Link
-                  href="/privacy"
-                  className="text-muted-foreground text-sm hover:text-foreground"
-                >
-                  Privacy Policy
-                </Link>
-                <Link
-                  href="/terms"
-                  className="text-muted-foreground text-sm hover:text-foreground"
-                >
-                  Terms of Service
-                </Link>
-              </div>
+            <div className="flex items-center justify-end">
+              <ThemeSwitcher />
             </div>
           </div>
         </div>
