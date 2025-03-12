@@ -1,4 +1,5 @@
 import 'server-only'
+import { Button } from '@repo/ui/components/ui/button'
 import { keys } from '../keys'
 import type { BetterStackResponse } from './types'
 
@@ -49,21 +50,23 @@ export const Status = async () => {
   }
 
   return (
-    <a
-      className="flex items-center gap-3 font-medium text-sm"
-      target="_blank"
-      rel="noreferrer"
-      href={url}
-    >
-      <span className="relative flex h-2 w-2">
-        <span
-          className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${statusColor}`}
-        />
-        <span
-          className={`relative inline-flex h-2 w-2 rounded-full ${statusColor}`}
-        />
-      </span>
-      <span className="text-muted-foreground">{statusLabel}</span>
-    </a>
+    <Button asChild variant="ghost" className="w-fit rounded-sm p-2">
+      <a
+        className="flex items-center gap-2 font-medium text-sm"
+        target="_blank"
+        rel="noreferrer"
+        href={url}
+      >
+        <span className="relative flex h-2 w-2">
+          <span
+            className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${statusColor}`}
+          />
+          <span
+            className={`relative inline-flex h-2 w-2 rounded-full ${statusColor}`}
+          />
+        </span>
+        <span className="text-muted-foreground">{statusLabel}</span>
+      </a>
+    </Button>
   )
 }
