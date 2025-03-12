@@ -1,7 +1,6 @@
 import { FooterNavigationItems } from '@/lib/navigation'
 import { Status } from '@repo/observability/status'
 import { cn } from '@repo/ui/lib/utils'
-import { ViewAnimation } from '@repo/ui/providers/view-animation'
 import Link from 'next/link'
 
 export const Footer = () => {
@@ -26,14 +25,8 @@ export const Footer = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:col-span-3">
-            {FooterNavigationItems.map((section, index) => (
-              <ViewAnimation
-                key={section.title}
-                initial={{ opacity: 0, translateY: -8 }}
-                whileInView={{ opacity: 1, translateY: 0 }}
-                delay={0.1 * index}
-                className="space-y-4"
-              >
+            {FooterNavigationItems.map(section => (
+              <div key={section.title} className="space-y-4">
                 <h3 className="font-medium text-sm uppercase tracking-wider">
                   {section.title}
                 </h3>
@@ -50,40 +43,22 @@ export const Footer = () => {
                     </li>
                   ))}
                 </ul>
-              </ViewAnimation>
+              </div>
             ))}
           </div>
         </div>
 
         <div className="grid gap-8 md:grid-cols-3">
-          <ViewAnimation
-            initial={{ opacity: 0, translateY: -8 }}
-            whileInView={{ opacity: 1, translateY: 0 }}
-            delay={0.4}
-          >
-            <Status />
-          </ViewAnimation>
+          <Status />
 
           <div className="flex items-center justify-center">
-            <ViewAnimation
-              initial={{ opacity: 0, translateY: -8 }}
-              whileInView={{ opacity: 1, translateY: 0 }}
-              delay={0.5}
-            >
-              <p className="whitespace-nowrap text-muted-foreground text-sm">
-                &copy; {new Date().getFullYear()} Blackhead. All rights
-                reserved.
-              </p>
-            </ViewAnimation>
+            <p className="whitespace-nowrap text-muted-foreground text-sm">
+              &copy; {new Date().getFullYear()} Blackhead. All rights reserved.
+            </p>
           </div>
 
           <div className="flex items-center sm:justify-end">
-            <ViewAnimation
-              initial={{ opacity: 0, translateY: -8 }}
-              whileInView={{ opacity: 1, translateY: 0 }}
-              delay={0.6}
-              className="flex space-x-4"
-            >
+            <div className="flex space-x-4">
               <Link
                 href="/privacy"
                 className="text-muted-foreground text-sm hover:text-foreground"
@@ -96,7 +71,7 @@ export const Footer = () => {
               >
                 Terms of Service
               </Link>
-            </ViewAnimation>
+            </div>
           </div>
         </div>
       </div>
