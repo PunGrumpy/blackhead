@@ -18,7 +18,7 @@ interface SectionProps extends HTMLAttributes<HTMLDivElement> {
 export const Section = ({ children, className, ...props }: SectionProps) => {
   return (
     <section {...props} className="mx-4">
-      <div className="relative mx-auto max-w-[1080px]">
+      <div className="relative mx-auto max-w-6xl">
         <div className={cn('border-x', className)}>{children}</div>
         <div className="-top-2 -left-2 md:-top-2.5 md:-left-2.5 absolute z-10 block">
           <Cross />

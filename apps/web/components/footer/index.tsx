@@ -8,7 +8,7 @@ export const Footer = () => {
   return (
     <footer className="mx-4 bg-background py-8 sm:py-24">
       <nav aria-label="Blackhead Directory">
-        <div className="mx-auto flex max-w-[1080px] flex-col gap-4 sm:gap-16 ">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:gap-16 ">
           <div className="grid w-full grid-cols-2 gap-8 md:grid-cols-[repeat(4,_1fr)_80px] md:gap-0">
             {FooterNavigationItems.map(section => (
               <div key={section.title} className="space-y-4">
