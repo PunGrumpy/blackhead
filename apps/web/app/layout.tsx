@@ -48,7 +48,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <DesignSystemProvider>
           <Header />
           <div className="h-32" />
-          <main className="divide-y">{children}</main>
+          <main className="relative mx-auto max-w-6xl divide-y">
+            {children}
+          </main>
           <Footer />
         </DesignSystemProvider>
       </body>

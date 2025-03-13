@@ -12,17 +12,25 @@ const Cross = () => {
 
 interface SectionProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode
+  showCross?: boolean
   className?: string
 }
 
-export const Section = ({ children, className, ...props }: SectionProps) => {
+export const Section = ({
+  children,
+  showCross,
+  className,
+  ...props
+}: SectionProps) => {
   return (
     <section {...props} className="mx-4">
       <div className="relative mx-auto max-w-6xl">
         <div className={cn('border-x', className)}>{children}</div>
-        <div className="-top-2 -left-2 md:-top-2.5 md:-left-2.5 absolute z-10 block">
-          <Cross />
-        </div>
+        {showCross && (
+          <div className="-top-2 -left-2 md:-top-2.5 md:-left-2.5 absolute z-10 block">
+            <Cross />
+          </div>
+        )}
       </div>
     </section>
   )
