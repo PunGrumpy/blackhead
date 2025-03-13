@@ -3,7 +3,7 @@ import { Button } from '@repo/ui/components/ui/button'
 
 export const Hero = () => {
   return (
-    <Section className="border-y p-10">
+    <Section className="border-y bg-dashed p-10">
       <div className="flex flex-col gap-8 sm:items-center">
         <h1 className="text-center font-bold text-2xl sm:text-4xl lg:text-5xl">
           Blackhead
