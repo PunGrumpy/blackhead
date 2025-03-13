@@ -1,8 +1,7 @@
 import { Section } from '@/components/section'
 import { Button } from '@repo/ui/components/ui/button'
-import {} from 'lucide-react'
 
-export default function HomePage() {
+export const Hero = () => {
   return (
     <Section className="border-y p-10">
       <div className="flex flex-col gap-8 sm:items-center">
