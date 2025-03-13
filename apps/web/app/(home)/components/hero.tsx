@@ -1,4 +1,5 @@
 import { Section } from '@/components/section'
+import { CodeBlock } from '@repo/ui/components/code-block'
 import { Button } from '@repo/ui/components/ui/button'
 
 export const Hero = () => {
@@ -9,13 +10,13 @@ export const Hero = () => {
           Blackhead
         </h1>
         <p className="max-w-prose text-center text-muted-foreground">
-          Blackhead is a template for Turborepo monorepo projects. It includes a
-          Next.js web app, shadcn/ui design system, and a TypeScript library
+          A monorepo template designed to have everything you need to build your
+          new SaaS app as thoroughly as possible. Free and open source, forever
         </p>
-        <div className="flex justify-center gap-4">
-          <Button size="lg">Get Started</Button>
-          <Button size="lg" variant="outline">
-            Get a Demo
+        <div className="mx-auto flex w-full max-w-lg flex-col items-center gap-4 sm:flex-row">
+          <CodeBlock code="npx blackhead@latest init" language="bash" />
+          <Button size="lg" className="hidden sm:block">
+            Get Started
           </Button>
         </div>
       </div>
