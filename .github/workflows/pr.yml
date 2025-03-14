@@ -1,0 +1,40 @@
+name: 🤔 Pull Request
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        types: 
+            - opened
+            - synchronize
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.event.pull_request.head.sha}}
+    cancel-in-progress: true
+
+jobs:
+    check:
+        name: 🕵🏻 Check Pull Request
+        runs-on: ubuntu-latest
+        timeout-minutes: 15 # 15 minutes
+        steps:
+            - name: 📥 Checkout Repository
+              uses: actions/checkout@v4
+              
+            - name: 🍞 Setup Bun
+              uses: oven-sh/setup-bun@v2
+
+            - name: 🌵 Cache Bun
+              id: bun-cache
+              uses: actions/cache@v4
+              with:
+                path: ~/.bun/install/cache
+                key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
+              
+            - name: 📦 Install Dependencies
+              run: bun install
+              
+            - name: 🚨 Check
+              run: bun lint
+            
