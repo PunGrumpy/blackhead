@@ -10,8 +10,7 @@
     "bump-deps": "bunx --bun npm-check-updates --deep -u && bun install",
     "bump-ui": "bunx --bun shadcn@canary add --all --overwrite -c packages/ui",
     "migrate": "cd packages/database && bunx --bun prisma format && bunx --bun prisma generate && bunx --bun prisma db push",
-    "clean": "git clean -xdf node_modules",
-    "postinstall": "cd packages/database && bunx --bun prisma generate --no-hints --schema=./prisma/schema.prisma"
+    "clean": "git clean -xdf node_modules"
   },
   "devDependencies": {
     "@repo/typescript-config": "*",
