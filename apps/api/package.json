@@ -13,6 +13,7 @@
   "dependencies": {
     "@repo/database": "*",
     "@repo/ui": "*",
+    "@repo/next-config": "*",
     "@t3-oss/env-nextjs": "^0.12.0",
     "next": "^15.2.2",
     "react": "^19.0.0",
