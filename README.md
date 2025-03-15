@@ -2,6 +2,18 @@
 
 Turborepo template for Next.js apps
 
+<picture>
+  <source
+    srcset="./public/preview-dark.png"
+    media="(prefers-color-scheme: dark)"
+  />
+    <source
+    srcset="./public/preview-light.png"
+    media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+  />
+  <img src="./public/preview-light.png" alt="Blackhead" />
+</picture>
+
 ## 🧑🏻‍💻 Tech Stacks
 
 - [Next.js](https://nextjs.org/)
