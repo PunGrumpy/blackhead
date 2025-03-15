@@ -1,9 +1,6 @@
 import { DesignSystemProvider } from '@repo/ui'
 import '@repo/ui/globals.css'
 import { cn } from '@repo/ui/lib/utils'
-
-import { Footer } from '@/components/footer'
-import { Header } from '@/components/header'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import type { ReactNode } from 'react'
@@ -46,14 +43,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           geistMono.variable
         )}
       >
-        <DesignSystemProvider>
-          <Header />
-          <div className="h-32" />
-          <main className="relative mx-auto max-w-6xl divide-y">
-            {children}
-          </main>
-          <Footer />
-        </DesignSystemProvider>
+        <DesignSystemProvider>{children}</DesignSystemProvider>
       </body>
     </html>
   )

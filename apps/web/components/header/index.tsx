@@ -63,7 +63,7 @@ export const Header = () => {
                         <NavigationMenuTrigger className="font-medium text-sm">
                           {item.title}
                         </NavigationMenuTrigger>
-                        <NavigationMenuContent className="!w-[600px] p-0">
+                        <NavigationMenuContent className="!w-[600px] bg-background p-0">
                           <div className="grid grid-cols-2 gap-0">
                             <div className="p-4">
                               <h3 className="mb-2 font-medium text-sm">
@@ -139,9 +139,11 @@ export const Header = () => {
         <div className="flex items-center space-x-2">
           <div className="hidden w-32 justify-end space-x-2 md:flex">
             <Button variant="outline" size="sm" asChild>
-              <Link href="/login">Log In</Link>
+              <Link href="/sign-in">Log In</Link>
             </Button>
-            <Button size="sm">Sign Up</Button>
+            <Button size="sm" asChild>
+              <Link href="/sign-up">Sign Up</Link>
+            </Button>
           </div>
 
           <Button
