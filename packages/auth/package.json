@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "migrate": "bunx --bun @better-auth/cli migrate --config server.ts",
+    "generate": "bunx --bun @better-auth/cli generate --config server.ts --output ../database/prisma/schema.prisma",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
@@ -13,7 +15,6 @@
     "better-auth": "^1.2.4",
     "next-themes": "^0.4.6",
     "react": "^19.0.0",
-    "server-only": "^0.0.1",
     "zod": "^3.24.2"
   },
   "devDependencies": {

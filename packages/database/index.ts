@@ -1,4 +1,4 @@
-import 'server-only'
+// import 'server-only' // better-auth sucks!
 
 import { Pool, neonConfig } from '@neondatabase/serverless'
 import { PrismaNeon } from '@prisma/adapter-neon'

@@ -11,10 +11,12 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
+    "@repo/auth": "*",
     "@repo/database": "*",
-    "@repo/ui": "*",
     "@repo/next-config": "*",
+    "@repo/ui": "*",
     "@t3-oss/env-nextjs": "^0.12.0",
+    "better-auth": "^1.2.4",
     "next": "^15.2.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
