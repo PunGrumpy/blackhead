@@ -63,7 +63,7 @@ export const Header = () => {
                         <NavigationMenuTrigger className="font-medium text-sm">
                           {item.title}
                         </NavigationMenuTrigger>
-                        <NavigationMenuContent className="!w-[600px] bg-background p-0">
+                        <NavigationMenuContent className="!w-[600px] p-0">
                           <div className="grid grid-cols-2 gap-0">
                             <div className="p-4">
                               <h3 className="mb-2 font-medium text-sm">
@@ -76,9 +76,9 @@ export const Header = () => {
                                     <NavigationMenuLink
                                       key={index}
                                       href={subItem.href}
-                                      className="flex flex-row items-center gap-3 rounded-md p-2 hover:bg-muted"
+                                      className="flex flex-row items-center gap-3 rounded-md p-2"
                                     >
-                                      <div className="flex h-8 w-8 items-center justify-center rounded-md border bg-background">
+                                      <div className="flex h-8 w-8 items-center justify-center rounded-md border bg-card">
                                         {subItem.icon || (
                                           <MoveRight className="h-4 w-4" />
                                         )}
@@ -106,9 +106,9 @@ export const Header = () => {
                                     <NavigationMenuLink
                                       key={index}
                                       href={subItem.href}
-                                      className="flex flex-row items-center gap-3 rounded-md p-2 hover:bg-muted"
+                                      className="flex flex-row items-center gap-3 rounded-md p-2"
                                     >
-                                      <div className="flex h-8 w-8 items-center justify-center rounded-md border bg-background">
+                                      <div className="flex h-8 w-8 items-center justify-center rounded-md border bg-card">
                                         {subItem.icon || (
                                           <MoveRight className="h-4 w-4" />
                                         )}
