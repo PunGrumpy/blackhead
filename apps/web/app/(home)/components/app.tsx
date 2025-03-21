@@ -11,7 +11,8 @@ const apps = [
     title: 'Priceless app template',
     description:
       'Starting template with everything you need to build a modern web app.',
-    image: 'https://images.unsplash.com/photo-1623282033815-40b05d96c903'
+    image:
+      'https://framerusercontent.com/images/yxMSn1krihZx3CRc18bbOl447WY.png'
   },
   {
     icon: ServerIcon,
@@ -20,7 +21,7 @@ const apps = [
     title: 'Cross-platform API',
     description:
       'Create an API microservice for many different apps, with a type-safe database ORM and webhook handlers.',
-    image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479'
+    image: 'https://framerusercontent.com/images/W12Iiq84nUEJ99ek5p4RDOSnaI.png'
   },
   {
     icon: Palette,
@@ -29,7 +30,7 @@ const apps = [
     title: 'Design system',
     description:
       'A design system with reusable components, themes, and styles for consistent branding.',
-    image: 'https://images.unsplash.com/photo-1523726491678-bf852e717f6a'
+    image: 'https://framerusercontent.com/images/8pJUu5rzYP4Ybb9kuEB1r3RT5U.png'
   }
 ]
 
@@ -64,7 +65,7 @@ const App = ({ app }: AppProps) => {
           width={500}
           height={500}
           className={cn(
-            'h-auto w-full overflow-hidden rounded-md border object-cover object-left shadow-sm'
+            'h-[350px] w-full overflow-hidden rounded-md border object-cover object-left shadow-sm'
           )}
         />
       </div>
