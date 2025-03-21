@@ -1,8 +1,13 @@
+'use client'
+
 import { Button } from '@repo/ui/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export const Header = () => {
+  const pathname = usePathname()
+
   return (
     <header className="container mx-auto flex min-h-16 items-center justify-between px-4 md:px-6">
       <Link href="/" className="flex items-center space-x-2">
@@ -27,7 +32,11 @@ export const Header = () => {
             <Link href="/contact">Contact</Link>
           </Button>
           <Button variant="outline" size="sm" asChild>
-            <Link href="/sign-up">Sign Up</Link>
+            {pathname === '/sign-in' ? (
+              <Link href="/sign-up">Sign Up</Link>
+            ) : (
+              <Link href="/sign-in">Sign In</Link>
+            )}
           </Button>
         </div>
       </div>
