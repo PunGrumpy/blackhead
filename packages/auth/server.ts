@@ -47,7 +47,8 @@ export const auth = betterAuth({
       httpOnly: true,
       sameSite: 'none', // Allows CORS-based cookie sharing across subdomains
       partitioned: true // New browser standards will mandate this for foreign cookies
-    }
+    },
+    useSecureCookies: false // We're using Vercel, so we don't need this
   },
   plugins: [nextCookies()]
 })
