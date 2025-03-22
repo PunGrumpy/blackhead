@@ -1,6 +1,7 @@
 'use client'
 
 import { NavigationItems } from '@/lib/navigation'
+import { ThemeSwitcher } from '@repo/ui/components/theme-toggle'
 import { Button } from '@repo/ui/components/ui/button'
 import {
   NavigationMenu,
@@ -205,6 +206,11 @@ export const Header = () => {
                 )}
               </div>
             ))}
+          </div>
+
+          <div className="flex items-center justify-between border-y px-3 py-4">
+            <p className="text-muted-foreground">Theme</p>
+            <ThemeSwitcher />
           </div>
         </div>
       )}
