@@ -3,7 +3,10 @@
 import { Check, Eye, EyeOff, X } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { type ComponentProps, useMemo, useState } from 'react'
-import { passwordValidation } from '../lib/password-validation'
+import {
+  containsNonAscii,
+  passwordValidation
+} from '../lib/password-validation'
 import { Input } from './ui/input'
 
 interface PasswordInputProps extends Omit<ComponentProps<'input'>, 'type'> {
@@ -20,10 +23,20 @@ export function PasswordInput({
   const toggleVisibility = () => setIsVisible(prevState => !prevState)
 
   const checkStrength = (pass: string) => {
-    return passwordValidation.map(req => ({
-      met: req.regex.test(pass),
-      text: req.text
-    }))
+    // Check if password contains non-ASCII characters
+    const hasNonAscii = containsNonAscii(pass)
+
+    return passwordValidation.map(req => {
+      if (hasNonAscii) {
+        if (req.text.includes('8 characters')) {
+          return { met: pass.length >= 8, text: req.text }
+        }
+        if (req.text.includes('lowercase') || req.text.includes('uppercase')) {
+          return { met: true, text: req.text }
+        }
+      }
+      return { met: req.regex.test(pass), text: req.text }
+    })
   }
 
   const strength = checkStrength(password)
@@ -69,7 +82,7 @@ export function PasswordInput({
 
   // Check if we should show the strength indicator (only if enabled AND the user has started typing)
   const shouldShowStrengthIndicator =
-    showStrengthIndicator && password.length > 0
+    showStrengthIndicator && password.trim() !== ''
 
   return (
     <div {...props}>

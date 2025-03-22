@@ -8,6 +8,9 @@ export const passwordValidation = [
   { regex: /[!@#$%^&*(),.?":{}|<>]/, text: 'At least 1 special character' }
 ]
 
+// Check if a string contains non-ASCII characters
+export const containsNonAscii = (text: string) => /[^\u0000-\u007F]/.test(text)
+
 export const passwordSchema = z
   .string()
   .min(8)
