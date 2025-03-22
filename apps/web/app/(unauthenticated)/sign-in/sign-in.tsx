@@ -15,7 +15,7 @@ export const SignIn = () => {
   const { data } = useSession()
 
   if (data?.session) {
-    return router.push('/dashboard')
+    router.push('/dashboard')
   }
 
   return (
