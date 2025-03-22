@@ -8,7 +8,6 @@ export const auth = betterAuth({
   database: prismaAdapter(database, {
     provider: 'postgresql'
   }),
-  trustedOrigins: [keys().NEXT_PUBLIC_WEB_URL],
   baseURL: keys().NEXT_PUBLIC_API_URL,
   basePath: '/webhooks/better-auth',
   emailAndPassword: {
@@ -35,6 +34,19 @@ export const auth = betterAuth({
     cookieCache: {
       enabled: true,
       maxAge: 60 * 60 * 24 * 7 // 1 week
+    }
+  },
+  trustedOrigins: [keys().NEXT_PUBLIC_WEB_URL],
+  advanced: {
+    crossSubDomainCookies: {
+      enabled: true,
+      domain: '.vercel.app'
+    },
+    defaultCookieAttributes: {
+      secure: true,
+      httpOnly: true,
+      sameSite: 'none', // Allows CORS-based cookie sharing across subdomains
+      partitioned: true // New browser standards will mandate this for foreign cookies
     }
   },
   plugins: [nextCookies()]
