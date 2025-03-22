@@ -1,6 +1,7 @@
 'use client'
 
 import { Check, Eye, EyeOff, X } from 'lucide-react'
+import { AnimatePresence, motion } from 'motion/react'
 import { type ComponentProps, useMemo, useState } from 'react'
 import { passwordValidation } from '../lib/password-validation'
 import { Input } from './ui/input'
@@ -66,6 +67,10 @@ export function PasswordInput({
     return 'Very strong password'
   }
 
+  // Check if we should show the strength indicator (only if enabled AND the user has started typing)
+  const shouldShowStrengthIndicator =
+    showStrengthIndicator && password.length > 0
+
   return (
     <div {...props}>
       <div className="w-full space-y-2">
@@ -77,7 +82,7 @@ export function PasswordInput({
             value={password}
             onChange={e => setPassword(e.target.value)}
             aria-describedby={
-              showStrengthIndicator ? 'password-strength' : undefined
+              shouldShowStrengthIndicator ? 'password-strength' : undefined
             }
           />
           <button
@@ -97,63 +102,76 @@ export function PasswordInput({
         </div>
       </div>
 
-      {showStrengthIndicator && (
-        <>
-          {/* Password strength indicator */}
-          <div
-            className="mt-3 mb-4 h-1 w-full overflow-hidden rounded-full bg-border"
-            aria-valuenow={strengthScore}
-            aria-valuetext={getStrengthText(strengthScore)}
-            aria-label="Password strength"
+      <AnimatePresence>
+        {shouldShowStrengthIndicator && (
+          <motion.div
+            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+            animate={{ opacity: 1, height: 'auto', marginTop: 12 }}
+            exit={{ opacity: 0, height: 0, marginTop: 0 }}
+            transition={{ duration: 0.3 }}
           >
+            {/* Password strength indicator */}
             <div
-              className={`h-full ${getStrengthColor(
-                strengthScore
-              )} transition-all duration-500 ease-out`}
-              style={{ width: `${(strengthScore / 5) * 100}%` }}
-            />
-          </div>
+              className="mb-4 h-1 w-full overflow-hidden rounded-full bg-border"
+              aria-valuenow={strengthScore}
+              aria-valuetext={getStrengthText(strengthScore)}
+              aria-label="Password strength"
+            >
+              <motion.div
+                className={`h-full ${getStrengthColor(strengthScore)}`}
+                style={{ width: `${(strengthScore / 5) * 100}%` }}
+                initial={{ width: 0 }}
+                animate={{ width: `${(strengthScore / 5) * 100}%` }}
+                transition={{ duration: 0.5, ease: 'easeOut' }}
+              />
+            </div>
 
-          {/* Password strength description */}
-          <p
-            id="password-strength"
-            className="mb-2 font-medium text-foreground text-sm"
-          >
-            {getStrengthText(strengthScore)}.
-          </p>
+            {/* Password strength description */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.1 }}
+              id="password-strength"
+              className="mb-2 font-medium text-foreground text-sm"
+            >
+              {getStrengthText(strengthScore)}.
+            </motion.p>
 
-          {/* Password requirements list */}
-          <ul className="space-y-1.5" aria-label="Password requirements">
-            {strength.map((req, index) => (
-              <li key={index} className="flex items-center gap-2">
-                {req.met ? (
-                  <Check
-                    size={16}
-                    className="text-emerald-500"
-                    aria-hidden="true"
-                  />
-                ) : (
-                  <X
-                    size={16}
-                    className="text-muted-foreground/80"
-                    aria-hidden="true"
-                  />
-                )}
-                <span
-                  className={`text-xs ${
-                    req.met ? 'text-emerald-600' : 'text-muted-foreground'
-                  }`}
-                >
-                  {req.text}
-                  <span className="sr-only">
-                    {req.met ? ' - Requirement met' : ' - Requirement not met'}
+            {/* Password requirements list */}
+            <ul className="space-y-1.5" aria-label="Password requirements">
+              {strength.map((req, index) => (
+                <li key={index} className="flex items-center gap-2">
+                  {req.met ? (
+                    <Check
+                      size={16}
+                      className="text-emerald-500"
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <X
+                      size={16}
+                      className="text-muted-foreground/80"
+                      aria-hidden="true"
+                    />
+                  )}
+                  <span
+                    className={`text-xs ${
+                      req.met ? 'text-emerald-600' : 'text-muted-foreground'
+                    }`}
+                  >
+                    {req.text}
+                    <span className="sr-only">
+                      {req.met
+                        ? ' - Requirement met'
+                        : ' - Requirement not met'}
+                    </span>
                   </span>
-                </span>
-              </li>
-            ))}
-          </ul>
-        </>
-      )}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
