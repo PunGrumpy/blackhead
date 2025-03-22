@@ -34,8 +34,8 @@ export const Header = () => {
           </div>
         </div>
       </Link>
-      <nav className="flex flex-1 flex-row items-center justify-end gap-6">
-        <div className="flex flex-initial flex-row items-center justify-end gap-6">
+      <nav className="flex flex-1 flex-row items-center justify-end">
+        <div className="flex flex-initial flex-row items-center justify-end gap-2">
           <Button
             size="sm"
             asChild
