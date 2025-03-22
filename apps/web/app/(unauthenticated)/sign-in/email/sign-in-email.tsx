@@ -60,7 +60,7 @@ export const SignInEmail = () => {
       <div className="mx-auto mb-4 max-w-md text-center">
         <h1 className="font-semibold text-3xl">Log in to Blackhead</h1>
       </div>
-      <div className="mx-auto w-full max-w-80">
+      <div className="mx-auto w-full max-w-80 space-y-4">
         {generalError && (
           <Alert variant="destructive" className="flex bg-destructive/15">
             <AlertCircle className="inline-block size-4" />
