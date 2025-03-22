@@ -176,8 +176,17 @@ export const Header = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="z-50 flex h-dvh bg-background md:hidden">
-          <div className="space-y-1 px-4 pt-2 pb-3 shadow-lg">
+        <div className="z-50 h-dvh bg-background px-4 pt-4 md:hidden">
+          <div className="flex w-full flex-col space-y-4">
+            <Button size="lg" className="w-full" asChild>
+              <Link href="/sign-in">Sign In</Link>
+            </Button>
+            <Button variant="outline" size="lg" className="w-full">
+              <Link href="/sign-up">Sign Up</Link>
+            </Button>
+          </div>
+
+          <div className="space-y-1 pt-6 pb-3 shadow-lg">
             {NavigationItems.map((item, index) => (
               <div key={index} className="py-1">
                 {item.href ? (
