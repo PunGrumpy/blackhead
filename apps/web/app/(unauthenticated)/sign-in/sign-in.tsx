@@ -5,25 +5,17 @@ import {
   GitlabLogo,
   GoogleLogo
 } from '@phosphor-icons/react/dist/ssr'
-import { signIn, useSession } from '@repo/auth/client'
+import { signIn } from '@repo/auth/client'
 import { Button } from '@repo/ui/components/ui/button'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 
 export const SignIn = () => {
-  const router = useRouter()
-  const { data } = useSession()
-
-  if (data?.session) {
-    router.push('/dashboard')
-  }
-
   return (
     <div className="relative flex h-full min-h-[calc(100vh-64px)] w-full shrink grow flex-col content-center items-center justify-center gap-6 p-6">
       <div className="mx-auto mb-4 max-w-md text-center">
-        <h1 className="font-semibold text-2xl">Log in to Blackhead</h1>
+        <h1 className="font-semibold text-3xl">Log in to Blackhead</h1>
       </div>
-      <div className="mx-auto w-full max-w-80 ">
+      <div className="mx-auto w-full max-w-80">
         <div className="flex flex-col gap-3">
           <Button
             variant="secondary"

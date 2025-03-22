@@ -32,7 +32,7 @@ export const Header = () => {
             <Link href="/contact">Contact</Link>
           </Button>
           <Button variant="outline" size="sm" asChild>
-            {pathname === '/sign-in' ? (
+            {pathname.includes('sign-in') ? (
               <Link href="/sign-up">Sign Up</Link>
             ) : (
               <Link href="/sign-in">Sign In</Link>

@@ -136,6 +136,19 @@
         "typescript": "^5.8.2",
       },
     },
+    "packages/security": {
+      "name": "@repo/security",
+      "version": "0.0.0",
+      "dependencies": {
+        "@nosecone/next": "^1.0.0-beta.4",
+        "@t3-oss/env-nextjs": "^0.12.0",
+        "zod": "^3.24.2",
+      },
+      "devDependencies": {
+        "@repo/typescript-config": "*",
+        "typescript": "^5.8.2",
+      },
+    },
     "packages/typescript-config": {
       "name": "@repo/typescript-config",
       "version": "0.0.0",
@@ -359,6 +372,8 @@
 
     "@noble/hashes": ["@noble/hashes@1.7.1", "", {}, "sha512-B8XBPsn4vT/KJAGqDzbwztd+6Yte3P4V7iafm24bxgDe/mlRuK6xmWPuCNrKt2vDafZ8MfJLlchDG/vYafQEjQ=="],
 
+    "@nosecone/next": ["@nosecone/next@1.0.0-beta.4", "", { "dependencies": { "nosecone": "1.0.0-beta.4" }, "peerDependencies": { "next": ">=14" } }, "sha512-wjfBQ5T1b4rmWVkc5ATqMrwZOBOilVDIw4SwXNne0nQY2moVw18601xG9D9nTghuvYrPHlYZF9MJf+9lwqcyIA=="],
+
     "@peculiar/asn1-android": ["@peculiar/asn1-android@2.3.15", "", { "dependencies": { "@peculiar/asn1-schema": "^2.3.15", "asn1js": "^3.0.5", "tslib": "^2.8.1" } }, "sha512-8U2TIj59cRlSXTX2d0mzUKP7whfWGFMzTeC3qPgAbccXFrPNZLaDhpNEdG5U2QZ/tBv/IHlCJ8s+KYXpJeop6w=="],
 
     "@peculiar/asn1-ecc": ["@peculiar/asn1-ecc@2.3.15", "", { "dependencies": { "@peculiar/asn1-schema": "^2.3.15", "@peculiar/asn1-x509": "^2.3.15", "asn1js": "^3.0.5", "tslib": "^2.8.1" } }, "sha512-/HtR91dvgog7z/WhCVdxZJ/jitJuIu8iTqiyWVgRE9Ac5imt2sT/E4obqIVGKQw7PIy+X6i8lVBoT6wC73XUgA=="],
@@ -502,6 +517,8 @@
     "@repo/next-config": ["@repo/next-config@workspace:packages/next-config"],
 
     "@repo/observability": ["@repo/observability@workspace:packages/observability"],
+
+    "@repo/security": ["@repo/security@workspace:packages/security"],
 
     "@repo/typescript-config": ["@repo/typescript-config@workspace:packages/typescript-config"],
 
@@ -748,6 +765,8 @@
     "node-releases": ["node-releases@2.0.19", "", {}, "sha512-xxOWJsBKtzAq7DY0J+DTzuz58K8e7sJbdgwkbMWQe8UYB6ekmsQ45q0M/tJDsGaZmbC+l7n57UV8Hl5tHxO9uw=="],
 
     "normalize-range": ["normalize-range@0.1.2", "", {}, "sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA=="],
+
+    "nosecone": ["nosecone@1.0.0-beta.4", "", {}, "sha512-itrwEwhoyPAeDqT3TgorqajXU3xLbab3TiCI8PNHTP8dK4vaoSy9M97z6pHqpbjIW7+Sco+pNAvuCELV+AzRGw=="],
 
     "object-assign": ["object-assign@4.1.1", "", {}, "sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg=="],
 

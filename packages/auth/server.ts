@@ -8,8 +8,13 @@ export const auth = betterAuth({
   database: prismaAdapter(database, {
     provider: 'postgresql'
   }),
+  trustedOrigins: [keys().NEXT_PUBLIC_WEB_URL],
   baseURL: keys().NEXT_PUBLIC_API_URL,
   basePath: '/webhooks/better-auth',
+  emailAndPassword: {
+    enabled: true,
+    disableSignUp: true // For now, we're disabling sign up
+  },
   socialProviders: {
     github: {
       clientId: keys().GITHUB_CLIENT_ID,

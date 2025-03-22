@@ -16,6 +16,7 @@
     "@repo/next-config": "*",
     "@repo/observability": "*",
     "@repo/ui": "*",
+    "@repo/security": "*",
     "@t3-oss/env-nextjs": "^0.12.0",
     "lucide-react": "^0.482.0",
     "motion": "^12.5.0",

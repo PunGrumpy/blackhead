@@ -2,9 +2,9 @@ import { getSessionCookie } from 'better-auth/cookies'
 import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
 
-export const authMiddleware = (request: NextRequest) => {
+export const authMiddleware = async (request: NextRequest) => {
   const isProtectedRoute = (request: NextRequest) => {
-    return request.url.startsWith('/dashboard')
+    return request.url.includes('/dashboard')
   }
 
   const sessionCookie = getSessionCookie(request, {
