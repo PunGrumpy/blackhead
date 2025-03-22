@@ -79,7 +79,7 @@ export const Header = () => {
                                       href={subItem.href}
                                       className="flex flex-row items-center gap-3 rounded-md p-2"
                                     >
-                                      <div className="flex h-8 w-8 items-center justify-center rounded-md border">
+                                      <div className="flex h-8 w-8 items-center justify-center rounded-md border bg-card">
                                         {subItem.icon || (
                                           <MoveRight className="h-4 w-4" />
                                         )}
