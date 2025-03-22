@@ -12,7 +12,7 @@ export const Header = () => {
   const isScroll = useIsScroll()
 
   return (
-    <header className="container mx-auto flex h-full min-h-16">
+    <header className="container mx-auto flex h-full min-h-16 px-6">
       <Link
         href="/"
         className={cn('flex items-center space-x-2', isScroll && 'fixed top-4')}

@@ -30,7 +30,7 @@ export const Header = () => {
         isScrolled && 'border-border border-b'
       )}
     >
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
+      <div className="container mx-auto flex h-16 items-center justify-between px-6">
         <div className="flex items-center space-x-6">
           <Link href="/" className="flex items-center space-x-2">
             <div className="relative h-8 w-8 overflow-hidden">
@@ -178,7 +178,7 @@ export const Header = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="z-50 h-dvh bg-background px-4 pt-4 md:hidden">
+        <div className="z-50 h-dvh bg-background px-6 pt-4 md:hidden">
           <div className="flex w-full flex-col space-y-4">
             <Button size="lg" className="w-full" asChild>
               <Link href="/sign-in">Sign In</Link>
