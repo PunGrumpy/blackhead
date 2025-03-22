@@ -11,7 +11,7 @@ export const keys = () =>
     },
     client: {
       NEXT_PUBLIC_WEB_URL: z.string().min(1).url(),
-      NEXT_PUBLIC_API_URL: z.string().min(1).url().optional()
+      NEXT_PUBLIC_API_URL: z.string().min(1).url()
     },
     runtimeEnv: {
       NEXT_RUNTIME: process.env.NEXT_RUNTIME,
