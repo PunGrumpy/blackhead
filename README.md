@@ -16,13 +16,13 @@ Turborepo template for Next.js apps
 
 ## 🧑🏻‍💻 Tech Stacks
 
-- [Next.js](https://nextjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS v4](https://tailwindcss.com/)
-- [Biome](https://biomejs.dev/)
-- [Ultracite](https://www.ultracite.dev/)
-- [Docker](https://www.docker.com/) & [Docker Compose](https://docs.docker.com/compose/)
-- [Vercel](https://vercel.com/)
+- [Next.js](https://nextjs.org/) - React Framework
+- [TypeScript](https://www.typescriptlang.org/) - JavaScript with types
+- [Tailwind CSS v4](https://tailwindcss.com/) - Utility-first CSS framework
+- [Biome](https://biomejs.dev/) - Fast and lightweight formatter
+- [Ultracite](https://www.ultracite.dev/) - Robust linting configuration
+- [Docker](https://www.docker.com/) & [Docker Compose](https://docs.docker.com/compose/) - Containerization (optional)
+- [Vercel](https://vercel.com/) - Deployment (optional)
 
 ## 🚀 Getting Started
 
