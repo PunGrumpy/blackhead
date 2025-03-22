@@ -27,3 +27,5 @@ export const auth = betterAuth({
   },
   plugins: [nextCookies(), passkey()]
 })
+
+export { toNextJsHandler } from 'better-auth/next-js'
