@@ -16,14 +16,12 @@ import {
 import { Input } from '@repo/ui/components/ui/input'
 import { AlertCircle } from 'lucide-react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import type { z } from 'zod'
 import { formSchema } from './schema'
 
 export const SignInEmail = () => {
-  const router = useRouter()
   const [generalError, setGeneralError] = useState<string | null>(null)
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -36,17 +34,13 @@ export const SignInEmail = () => {
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     setGeneralError(null)
     try {
-      const { data: session, error } = await signIn.email({
+      const { error } = await signIn.email({
         email: data.email,
         password: data.password
       })
 
       if (error) {
-        setGeneralError(error.message || 'Failed to sign up. Please try again.')
-      }
-
-      if (session) {
-        router.push('/dashboard')
+        setGeneralError(error.message || 'Failed to sign in. Please try again.')
       }
     } catch {
       setGeneralError(
