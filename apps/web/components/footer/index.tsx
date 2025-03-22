@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export const Footer = () => {
   return (
-    <footer className="mx-4 bg-background py-8 sm:py-24">
+    <footer className="mx-4 bg-background py-8 sm:px-20 sm:py-24">
       <nav
         aria-label="Blackhead Directory"
         className="mx-auto flex max-w-6xl flex-col gap-4 sm:gap-16"
