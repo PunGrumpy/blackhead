@@ -25,8 +25,8 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        'fixed top-0 z-50 w-full transition-all duration-300',
-        isScrolled ? 'border-border border-b bg-background' : 'bg-transparent'
+        'fixed top-0 z-50 w-full bg-background transition-all duration-300',
+        isScrolled && 'border-border border-b'
       )}
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
