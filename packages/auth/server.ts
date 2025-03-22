@@ -33,6 +33,7 @@ export const auth = betterAuth({
     updateAge: 60 * 60 * 24, // 1 day (every day, the session will be updated)
     cookieCache: {
       enabled: true,
+      path: '/',
       maxAge: 60 * 60 * 24 * 7 // 1 week
     }
   },
@@ -42,6 +43,7 @@ export const auth = betterAuth({
       enabled: true
     },
     defaultCookieAttributes: {
+      path: '/',
       sameSite: 'none',
       partitioned: true
     }
