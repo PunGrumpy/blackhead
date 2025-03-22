@@ -79,7 +79,7 @@ export const Header = () => {
                                       href={subItem.href}
                                       className="flex flex-row items-center gap-3 rounded-md p-2"
                                     >
-                                      <div className="flex h-8 w-8 items-center justify-center rounded-md border bg-card">
+                                      <div className="flex h-8 w-8 items-center justify-center rounded-md border">
                                         {subItem.icon || (
                                           <MoveRight className="h-4 w-4" />
                                         )}
@@ -187,7 +187,7 @@ export const Header = () => {
             </Button>
           </div>
 
-          <div className="space-y-1 pt-6 pb-3 shadow-lg">
+          <div className="space-y-1 pt-6 pb-3">
             {NavigationItems.map((item, index) => (
               <div key={index} className="py-1">
                 {item.href ? (
