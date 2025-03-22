@@ -1,9 +1,8 @@
 import { config } from '@repo/next-config'
 import type { NextConfig } from 'next'
 
-let nextConfig: NextConfig = config
-
-nextConfig = {
+const nextConfig: NextConfig = {
+  ...config,
   images: {
     remotePatterns: [
       {
