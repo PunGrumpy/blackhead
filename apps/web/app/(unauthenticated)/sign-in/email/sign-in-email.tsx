@@ -1,6 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { signIn } from '@repo/auth/client'
 import { PasswordInput } from '@repo/ui/components/password-input'
 import { Alert } from '@repo/ui/components/ui/alert'
 import { Button } from '@repo/ui/components/ui/button'
@@ -19,7 +20,6 @@ import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import type { z } from 'zod'
-import { signIn } from './action'
 import { formSchema } from './schema'
 
 export const SignInEmail = () => {
@@ -36,16 +36,22 @@ export const SignInEmail = () => {
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     setGeneralError(null)
     try {
-      const session = await signIn(data)
-      if (session.user) {
+      const { data: session, error } = await signIn.email({
+        email: data.email,
+        password: data.password
+      })
+
+      if (error) {
+        setGeneralError(error.message || 'Failed to sign up. Please try again.')
+      }
+
+      if (session) {
         router.push('/dashboard')
       }
-    } catch (error) {
-      const message =
-        error instanceof Error
-          ? error.message
-          : 'Failed to sign in. Please try again.'
-      setGeneralError(message)
+    } catch {
+      setGeneralError(
+        'Unable to connect to the authentication service. Please try again later or contact support if the issue persists.'
+      )
     }
   }
 
