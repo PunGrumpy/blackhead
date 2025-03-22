@@ -29,6 +29,7 @@ export const Header = () => {
               alt="Blackhead Logo"
               width={32}
               height={32}
+              className="invert dark:invert-0"
             />
           </div>
         </div>

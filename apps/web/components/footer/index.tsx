@@ -40,6 +40,7 @@ export const Footer = () => {
                     alt="Blackhead Logo"
                     width={28}
                     height={28}
+                    className="invert dark:invert-0"
                   />
                 </div>
               </div>
