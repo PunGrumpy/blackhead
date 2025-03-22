@@ -49,7 +49,7 @@ export const SignUp = () => {
       }
 
       if (session) {
-        router.push('/dashboard')
+        router.replace('/dashboard')
       }
     } catch {
       setGeneralError(
