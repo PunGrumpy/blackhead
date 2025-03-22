@@ -3,15 +3,21 @@
 import {
   GithubLogo,
   GitlabLogo,
-  GoogleLogo,
-  Key
+  GoogleLogo
 } from '@phosphor-icons/react/dist/ssr'
-import { signIn } from '@repo/auth/client'
+import { signIn, useSession } from '@repo/auth/client'
 import { Button } from '@repo/ui/components/ui/button'
-import { Separator } from '@repo/ui/components/ui/separator'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 export const SignIn = () => {
+  const router = useRouter()
+  const { data } = useSession()
+
+  if (data?.session) {
+    return router.push('/dashboard')
+  }
+
   return (
     <div className="relative flex h-full min-h-[calc(100vh-64px)] w-full shrink grow flex-col content-center items-center justify-center gap-6 p-6">
       <div className="mx-auto mb-4 max-w-md text-center">
@@ -22,11 +28,11 @@ export const SignIn = () => {
           <Button
             variant="secondary"
             className="h-12 gap-1.5"
-            onClick={async () => {
-              await signIn.social({
+            onClick={() =>
+              signIn.social({
                 provider: 'github'
               })
-            }}
+            }
           >
             <GithubLogo className="size-6" />
             Continue with GitHub
@@ -34,11 +40,11 @@ export const SignIn = () => {
 
           <Button
             className="h-12 gap-1.5 bg-violet-600 text-primary hover:bg-violet-700"
-            onClick={async () => {
-              await signIn.social({
+            onClick={() =>
+              signIn.social({
                 provider: 'gitlab'
               })
-            }}
+            }
           >
             <GitlabLogo className="size-6" />
             Continue with GitLab
@@ -46,27 +52,14 @@ export const SignIn = () => {
 
           <Button
             className="h-12 gap-1.5 bg-blue-600 text-primary hover:bg-blue-700"
-            onClick={async () => {
-              await signIn.social({
+            onClick={() =>
+              signIn.social({
                 provider: 'google'
               })
-            }}
+            }
           >
             <GoogleLogo className="size-6" />
             Continue with Google
-          </Button>
-
-          <Separator className="my-3" />
-
-          <Button
-            variant="outline"
-            className="h-12 gap-1.5 border-border bg-background text-foreground hover:bg-accent"
-            onClick={async () => {
-              await signIn.passkey()
-            }}
-          >
-            <Key className="size-6" />
-            Login with Passkey
           </Button>
         </div>
 

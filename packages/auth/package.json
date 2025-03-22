@@ -3,8 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "migrate": "bunx --bun @better-auth/cli migrate --config server.ts",
-    "generate": "bunx --bun @better-auth/cli generate --config server.ts --output ../database/prisma/schema.prisma",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
