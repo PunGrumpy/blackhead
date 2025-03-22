@@ -37,18 +37,6 @@ export const auth = betterAuth({
     }
   },
   trustedOrigins: [keys().NEXT_PUBLIC_WEB_URL, keys().NEXT_PUBLIC_API_URL],
-  advanced: {
-    crossSubDomainCookies: {
-      enabled: true,
-      domain: '.vercel.app'
-    },
-    defaultCookieAttributes: {
-      secure: true,
-      httpOnly: true,
-      sameSite: 'none', // Allows CORS-based cookie sharing across subdomains
-      partitioned: true // New browser standards will mandate this for foreign cookies
-    }
-  },
   plugins: [nextCookies()]
 })
 
