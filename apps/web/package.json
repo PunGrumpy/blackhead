@@ -20,7 +20,7 @@
     "@t3-oss/env-nextjs": "^0.12.0",
     "lucide-react": "^0.483.0",
     "motion": "^12.5.0",
-    "next": "^15.3.0-canary.19",
+    "next": "^15.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sonner": "^2.0.1"

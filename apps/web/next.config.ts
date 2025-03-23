@@ -20,9 +20,6 @@ const nextConfig: NextConfig = {
       }
     ]
   },
-  experimental: {
-    nodeMiddleware: true
-  },
   // biome-ignore lint/suspicious/useAwait: headers want to use async functions
   headers: async () => {
     return [
