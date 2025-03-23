@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   headers: async () => {
     return [
       {
-        source: '/**',
+        source: '/webhooks/better-auth/(.*)',
         headers: [
           {
             key: 'Access-Control-Allow-Origin',
