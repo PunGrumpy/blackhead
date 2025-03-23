@@ -12,7 +12,7 @@ export const auth = betterAuth({
   basePath: '/webhooks/better-auth',
   emailAndPassword: {
     enabled: true,
-    disableSignUp: true // For now, we're disabling sign up
+    disableSignUp: true
   },
   socialProviders: {
     github: {
@@ -40,12 +40,13 @@ export const auth = betterAuth({
   trustedOrigins: [keys().NEXT_PUBLIC_WEB_URL, keys().NEXT_PUBLIC_API_URL],
   advanced: {
     crossSubDomainCookies: {
-      enabled: true
+      enabled: false // Disable this since we'll handle domain explicitly
     },
     defaultCookieAttributes: {
       path: '/',
       sameSite: 'none',
-      partitioned: true
+      partitioned: true,
+      domain: new URL(keys().NEXT_PUBLIC_WEB_URL).hostname
     }
   },
   plugins: [nextCookies()]
