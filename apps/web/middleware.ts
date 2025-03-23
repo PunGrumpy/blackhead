@@ -1,12 +1,26 @@
-import { authMiddleware } from '@repo/auth/middleware'
+import { auth } from '@repo/auth/server'
 import { noseconeMiddleware, noseconeOptions } from '@repo/security/middleware'
-import type { NextRequest } from 'next/server'
+import { headers } from 'next/headers'
+import { type NextRequest, NextResponse } from 'next/server'
 
 const securityHeaders = noseconeMiddleware(noseconeOptions)
 
+const isProtectedRoute = (request: NextRequest) => {
+  return request.url.includes('/dashboard')
+}
+
 export async function middleware(request: NextRequest) {
   await securityHeaders()
-  return await authMiddleware(request)
+
+  const session = await auth.api.getSession({
+    headers: await headers()
+  })
+
+  if (!session && isProtectedRoute(request)) {
+    return NextResponse.redirect(new URL('/sign-in', request.url))
+  }
+
+  return NextResponse.next()
 }
 
 export const config = {
