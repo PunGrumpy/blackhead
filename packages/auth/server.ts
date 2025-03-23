@@ -8,8 +8,6 @@ export const auth = betterAuth({
   database: prismaAdapter(database, {
     provider: 'postgresql'
   }),
-  baseURL: keys().NEXT_PUBLIC_API_URL,
-  basePath: '/webhooks/better-auth',
   emailAndPassword: {
     enabled: true,
     disableSignUp: true
@@ -38,16 +36,6 @@ export const auth = betterAuth({
     }
   },
   trustedOrigins: [keys().NEXT_PUBLIC_WEB_URL, keys().NEXT_PUBLIC_API_URL],
-  advanced: {
-    crossSubDomainCookies: {
-      enabled: false // Disable this since we'll handle domain explicitly
-    },
-    defaultCookieAttributes: {
-      path: '/',
-      sameSite: 'none',
-      partitioned: true
-    }
-  },
   plugins: [nextCookies()]
 })
 
