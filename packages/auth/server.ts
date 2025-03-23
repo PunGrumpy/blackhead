@@ -45,8 +45,7 @@ export const auth = betterAuth({
     defaultCookieAttributes: {
       path: '/',
       sameSite: 'none',
-      partitioned: true,
-      domain: new URL(keys().NEXT_PUBLIC_WEB_URL).hostname
+      partitioned: true
     }
   },
   plugins: [nextCookies()]
