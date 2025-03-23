@@ -37,13 +37,6 @@ export const auth = betterAuth({
       maxAge: 60 * 60 * 24 * 7 // 1 week
     }
   },
-  advanced: {
-    defaultCookieAttributes: {
-      path: '/',
-      sameSite: 'none',
-      partitioned: true
-    }
-  },
   trustedOrigins: [keys().NEXT_PUBLIC_WEB_URL, keys().NEXT_PUBLIC_API_URL],
   plugins: [nextCookies()]
 })
