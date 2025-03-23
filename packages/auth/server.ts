@@ -39,7 +39,10 @@ export const auth = betterAuth({
   },
   advanced: {
     defaultCookieAttributes: {
-      sameSite: 'none'
+      domain:
+        process.env.NODE_ENV === 'production'
+          ? '.vercel.app'
+          : new URL(keys().NEXT_PUBLIC_WEB_URL).hostname
     }
   },
   trustedOrigins: [keys().NEXT_PUBLIC_WEB_URL, keys().NEXT_PUBLIC_API_URL],
