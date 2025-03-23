@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Access-Control-Allow-Headers',
-            value: 'Content-Type, Authorization'
+            value: 'Content-Type, Authorization, Cookie'
           },
           {
             key: 'Access-Control-Allow-Credentials',
