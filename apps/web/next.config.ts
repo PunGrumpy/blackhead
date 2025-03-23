@@ -27,7 +27,7 @@ const nextConfig: NextConfig = {
   headers: async () => {
     return [
       {
-        source: '/',
+        source: '/**',
         headers: [
           {
             key: 'Access-Control-Allow-Origin',
@@ -35,7 +35,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Access-Control-Allow-Methods',
-            value: 'GET, POST, OPTIONS'
+            value: 'GET, POST, PUT, DELETE, OPTIONS'
           },
           {
             key: 'Access-Control-Allow-Headers',
@@ -44,10 +44,6 @@ const nextConfig: NextConfig = {
           {
             key: 'Access-Control-Allow-Credentials',
             value: 'true'
-          },
-          {
-            key: 'Access-Control-Max-Age',
-            value: '600'
           }
         ]
       }
