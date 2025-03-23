@@ -16,6 +16,9 @@ export async function middleware(request: NextRequest) {
     headers: await headers()
   })
 
+  // warn: for testing session
+  console.log('session', session)
+
   if (!session && isProtectedRoute(request)) {
     return NextResponse.redirect(new URL('/sign-in', request.url))
   }
