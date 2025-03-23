@@ -1,5 +1,6 @@
 import { config } from '@repo/next-config'
 import type { NextConfig } from 'next'
+import { env } from './env'
 
 const nextConfig: NextConfig = {
   ...config,
@@ -23,8 +24,20 @@ const nextConfig: NextConfig = {
   headers: async () => {
     return [
       {
-        source: '/',
+        source: '/api/auth/(.*)',
         headers: [
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: env.NEXT_PUBLIC_WEB_URL
+          },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, POST, OPTIONS'
+          },
+          {
+            key: 'Access-Control-Allow-Headers',
+            value: 'Content-Type, Authorization'
+          },
           {
             key: 'Access-Control-Allow-Credentials',
             value: 'true'
