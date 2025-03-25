@@ -33,9 +33,14 @@ export const auth = betterAuth({
     updateAge: 60 * 60 * 24, // 1 day (every day, the session will be updated)
     cookieCache: {
       enabled: true,
+      maxAge: 60 * 60 * 24 * 7 // 1 week
+    }
+  },
+  advanced: {
+    defaultCookieAttributes: {
       path: '/',
-      maxAge: 60 * 60 * 24 * 7, // 1 week
-      domain: '.vercel.app'
+      domain: '.vercel.app',
+      sameSite: 'none'
     }
   },
   trustedOrigins: [keys().NEXT_PUBLIC_WEB_URL, keys().NEXT_PUBLIC_API_URL],
