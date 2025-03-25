@@ -6,21 +6,34 @@ const isProtectedRoute = (request: NextRequest) => {
 }
 
 export const authMiddleware = async (request: NextRequest) => {
-  const url = new URL(
-    `${keys().NEXT_PUBLIC_API_URL}/webhooks/better-auth/get-session`,
-    request.nextUrl.origin
-  )
-  const response = await fetch(url, {
-    headers: {
-      cookie: request.headers.get('cookie') || ''
+  try {
+    const url = new URL(
+      `${keys().NEXT_PUBLIC_API_URL}/webhooks/better-auth/get-session`,
+      request.nextUrl.origin
+    )
+    const response = await fetch(url, {
+      headers: {
+        cookie: request.headers.get('cookie') || ''
+      }
+    })
+
+    if (!response.ok) {
+      return isProtectedRoute(request)
+        ? NextResponse.redirect(new URL('/sign-in', request.url))
+        : NextResponse.next()
     }
-  })
 
-  const session = await response.json()
+    const text = await response.text()
+    const session = text ? JSON.parse(text) : null
 
-  if (isProtectedRoute(request) && !session) {
-    return NextResponse.redirect(new URL('/sign-in', request.url))
+    if (isProtectedRoute(request) && !session) {
+      return NextResponse.redirect(new URL('/sign-in', request.url))
+    }
+
+    return NextResponse.next()
+  } catch {
+    return isProtectedRoute(request)
+      ? NextResponse.redirect(new URL('/sign-in', request.url))
+      : NextResponse.next()
   }
-
-  return NextResponse.next()
 }
