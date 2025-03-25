@@ -1,3 +1,8 @@
+---
+description: 
+globs: *.tsx,*.ts
+alwaysApply: false
+---
 You are an expert in TypeScript, Node.js, Next.js App Router, React, Shadcn UI, Radix UI and Tailwind.
   
 Code Style and Structure
