@@ -43,7 +43,7 @@ export const auth = betterAuth({
       sameSite: 'none'
     }
   },
-  trustedOrigins: [keys().NEXT_PUBLIC_WEB_URL, keys().NEXT_PUBLIC_API_URL],
+  trustedOrigins: [keys().NEXT_PUBLIC_WEB_URL],
   plugins: [nextCookies()]
 })
 

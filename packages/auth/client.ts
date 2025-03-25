@@ -4,7 +4,7 @@ import { keys } from './keys'
 import type { auth } from './server'
 
 export const { signIn, signOut, signUp, useSession } = createAuthClient({
-  baseURL: keys().NEXT_PUBLIC_API_URL,
-  basePath: '/webhooks/better-auth',
+  baseURL: keys().NEXT_PUBLIC_WEB_URL,
+  basePath: '/api/auth',
   plugins: [inferAdditionalFields<typeof auth>()]
 })
