@@ -1,11 +1,11 @@
 import { authMiddleware } from '@repo/auth/middleware'
-// import { noseconeMiddleware, noseconeOptions } from '@repo/security/middleware'
+import { noseconeMiddleware, noseconeOptions } from '@repo/security/middleware'
 import type { NextRequest } from 'next/server'
 
-// const securityHeaders = noseconeMiddleware(noseconeOptions)
+const securityHeaders = noseconeMiddleware(noseconeOptions)
 
-export default function middleware(request: NextRequest) {
-  // await securityHeaders()
+export default async function middleware(request: NextRequest) {
+  await securityHeaders()
   return authMiddleware(request)
 }
 
