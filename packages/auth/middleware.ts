@@ -1,14 +1,24 @@
-import { getSessionCookie } from 'better-auth/cookies'
 import { type NextRequest, NextResponse } from 'next/server'
+import { keys } from './keys'
 
 const isProtectedRoute = (request: NextRequest) => {
   return request.url.includes('/dashboard')
 }
 
-export const authMiddleware = (request: NextRequest) => {
-  const sessionCookie = getSessionCookie(request)
+export const authMiddleware = async (request: NextRequest) => {
+  const url = new URL(
+    `${keys().NEXT_PUBLIC_API_URL}/webhooks/better-auth/get-session`,
+    request.nextUrl.origin
+  )
+  const response = await fetch(url, {
+    headers: {
+      cookie: request.headers.get('cookie') || ''
+    }
+  })
 
-  if (isProtectedRoute(request) && !sessionCookie) {
+  const session = await response.json()
+
+  if (isProtectedRoute(request) && !session) {
     return NextResponse.redirect(new URL('/sign-in', request.url))
   }
 
