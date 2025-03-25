@@ -35,14 +35,6 @@ export const auth = betterAuth({
       maxAge: 60 * 60 * 24 * 7 // 1 week
     }
   },
-  advanced: {
-    defaultCookieAttributes: {
-      domain:
-        process.env.NODE_ENV === 'production'
-          ? '.vercel.app'
-          : new URL(keys().NEXT_PUBLIC_WEB_URL).hostname
-    }
-  },
   trustedOrigins: [keys().NEXT_PUBLIC_WEB_URL, keys().NEXT_PUBLIC_API_URL],
   plugins: [nextCookies()]
 })
