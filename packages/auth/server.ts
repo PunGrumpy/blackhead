@@ -39,7 +39,6 @@ export const auth = betterAuth({
   advanced: {
     defaultCookieAttributes: {
       path: '/',
-      domain: '.vercel.app',
       sameSite: 'none'
     }
   },
