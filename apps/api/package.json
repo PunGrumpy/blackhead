@@ -1,0 +1,13 @@
+{
+  "name": "api",
+  "private": true,
+  "scripts": {
+    "dev": "bunx --bun supabase start",
+    "stop": "bunx --bun supabase stop",
+    "login": "bunx --bun supabase login",
+    "db:reset": ""
+  },
+  "dependencies": {
+    "supabase": "^2.20.5"
+  }
+}
