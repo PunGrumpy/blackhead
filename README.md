@@ -1,4 +1,4 @@
-# 🎩 Blackhead
+# 🐦‍⬛ Blackhead
 
 Turborepo template for Next.js apps
 
