@@ -9,7 +9,8 @@ export const auth = betterAuth({
     provider: 'pg'
   }),
   emailAndPassword: {
-    enabled: true
+    enabled: true,
+    disableSignUp: true // Disable sign up for now
   },
   socialProviders: {
     google: {

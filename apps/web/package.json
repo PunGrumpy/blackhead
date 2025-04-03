@@ -10,10 +10,13 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.1.7",
     "@repo/ui": "*",
+    "@t3-oss/env-nextjs": "^0.12.0",
     "next": "^15.2.4",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@repo/typescript-config": "*",
