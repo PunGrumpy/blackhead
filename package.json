@@ -1,12 +1,15 @@
 {
   "name": "blackhead",
+  "description": "🐦‍⬛ Turborepo template for Next.js apps",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types"
+    "lint": "ultracite lint",
+    "format": "ultracite format",
+    "typecheck": "turbo run typecheck",
+    "clean": "git clean -xdf node_modules full"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
@@ -18,8 +21,5 @@
     "node": ">=18"
   },
   "packageManager": "bun@1.2.8",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+  "workspaces": ["apps/*", "packages/*"]
 }
