@@ -1,0 +1,19 @@
+{
+  "name": "@repo/auth",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "generate": "bunx --bun @better-auth/cli generate --output ../database/schema.ts --config ./server.ts",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@repo/database": "*",
+    "@t3-oss/env-nextjs": "^0.12.0",
+    "better-auth": "^1.2.5",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "next": "^15.2.4"
+  }
+}

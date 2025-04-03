@@ -11,7 +11,12 @@
     "typecheck": "turbo run typecheck",
     "bump-deps": "bunx --bun npm-check-updates --deep -u && bun install",
     "bump-ui": "bunx --bun shadcn@canary add --all --overwrite -c packages/ui",
-    "clean": "git clean -xdf node_modules full"
+    "clean": "git clean -xdf node_modules full",
+    "auth:generate": "cd packages/auth && bun run generate",
+    "db:generate": "cd packages/database && bun run db:generate",
+    "db:migrate": "cd packages/database && bun run db:migrate",
+    "db:push": "cd packages/database && bun run db:push",
+    "db:studio": "cd packages/database && bun run db:studio"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
