@@ -7,6 +7,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "ultracite lint",
+    "format:ci": "prettier --write .github",
     "format": "ultracite format",
     "typecheck": "turbo run typecheck",
     "bump-deps": "bunx --bun npm-check-updates --deep -u -x \"react-day-picker\" && bun install",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
+    "prettier": "^3.5.3",
     "turbo": "^2.4.4",
     "typescript": "5.8.2",
     "ultracite": "^4.2.1"
