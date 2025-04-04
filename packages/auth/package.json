@@ -5,6 +5,7 @@
   "exports": {
     "./client": "./client.ts",
     "./server": "./server.ts",
+    "./middleware": "./middleware.ts",
     "./keys": "./keys.ts"
   },
   "scripts": {
