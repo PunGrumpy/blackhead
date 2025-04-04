@@ -1,4 +1,5 @@
 import { FooterNavigationItems } from '@/lib/navigation'
+import { Status } from '@repo/ui/components/status'
 import { ThemeSwitcher } from '@repo/ui/components/theme-toggle'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -48,7 +49,7 @@ export const Footer = () => {
         </div>
 
         <div className="grid grid-cols-2">
-          <div>status of the project</div>
+          <Status />
           <div className="flex items-center justify-end">
             <ThemeSwitcher />
           </div>

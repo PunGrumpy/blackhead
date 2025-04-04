@@ -1,3 +1,4 @@
+import { Status } from '@repo/ui/components/status'
 import { ThemeSwitcher } from '@repo/ui/components/theme-toggle'
 import {
   DropdownMenu,
@@ -94,7 +95,7 @@ export const Footer = () => {
         </div>
 
         <div className="flex items-center justify-between gap-4">
-          <div>status of project</div>
+          <Status />
           <ThemeSwitcher />
         </div>
       </nav>
