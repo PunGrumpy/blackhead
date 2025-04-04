@@ -4,6 +4,11 @@
 node_modules
 .pnp
 .pnp.js
+.yarn/install-state.gz
+
+# Typescript
+*.tsbuildinfo
+next-env.d.ts
 
 # Local env files
 .env
@@ -18,6 +23,10 @@ coverage
 # Turbo
 .turbo
 
+# next.js
+/.next/
+/out/
+
 # Vercel
 .vercel
 
@@ -26,7 +35,6 @@ coverage
 out/
 build
 dist
-
 
 # Debug
 npm-debug.log*
