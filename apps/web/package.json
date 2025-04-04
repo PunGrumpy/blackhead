@@ -10,8 +10,9 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@phosphor-icons/react": "^2.1.7",
     "@repo/ui": "*",
+    "@repo/auth": "*",
+    "@phosphor-icons/react": "^2.1.7",
     "@t3-oss/env-nextjs": "^0.12.0",
     "next": "^15.2.4",
     "react": "^19.1.0",
