@@ -1,0 +1,20 @@
+name: 🧑🏻‍⚕️ PR Labeler
+
+on:
+  pull_request_target:
+
+jobs:
+  labeler:
+    name: 🏷️ Labeler
+    permissions:
+      contents: read
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛎️ Checkout
+        uses: actions/checkout@v4
+      - name: 🏷️ Labeler
+        uses: actions/labeler@v5
+        if: hashFiles('.github/labeler.yml') != '' # Only run if the configuration file exists
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
