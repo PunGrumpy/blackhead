@@ -11,6 +11,24 @@
         "ultracite": "^4.2.1",
       },
     },
+    "apps/api": {
+      "name": "api",
+      "dependencies": {
+        "@repo/auth": "*",
+        "@repo/ui": "*",
+        "next": "^15.2.4",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0",
+        "zod": "^3.24.2",
+      },
+      "devDependencies": {
+        "@repo/typescript-config": "*",
+        "@types/node": "^22.14.0",
+        "@types/react": "19.1.0",
+        "@types/react-dom": "19.1.1",
+        "typescript": "5.8.2",
+      },
+    },
     "apps/web": {
       "name": "web",
       "dependencies": {
@@ -509,6 +527,8 @@
     "@types/react": ["@types/react@19.1.0", "", { "dependencies": { "csstype": "^3.0.2" } }, "sha512-UaicktuQI+9UKyA4njtDOGBD/67t8YEBt2xdfqu8+gP9hqPUPsiXlNPcpS2gVdjmis5GKPG3fCxbQLVgxsQZ8w=="],
 
     "@types/react-dom": ["@types/react-dom@19.1.1", "", { "peerDependencies": { "@types/react": "^19.0.0" } }, "sha512-jFf/woGTVTjUJsl2O7hcopJ1r0upqoq/vIOoCj0yLh3RIXxWcljlpuZ+vEBRXsymD1jhfeJrlyTy/S1UW+4y1w=="],
+
+    "api": ["api@workspace:apps/api"],
 
     "aria-hidden": ["aria-hidden@1.2.4", "", { "dependencies": { "tslib": "^2.0.0" } }, "sha512-y+CcFFwelSXpLZk/7fMB2mUbGtX9lKycf1MWJ7CaTIERyitVlyQx6C+sxcROU2BAJ24OiZyK+8wj2i8AlBoS3A=="],
 
