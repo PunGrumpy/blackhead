@@ -21,7 +21,7 @@ Turborepo template for Next.js apps
 - [Tailwind CSS v4](https://tailwindcss.com/) - Utility-first CSS framework
 - [Biome](https://biomejs.dev/) - Fast and lightweight formatter
 - [Ultracite](https://www.ultracite.dev/) - Robust linting configuration
-<!-- - [Docker](https://www.docker.com/) & [Docker Compose](https://docs.docker.com/compose/) - Containerization (optional) -->
+- [Docker](https://www.docker.com/) & [Docker Compose](https://docs.docker.com/compose/) & [Docker Bake](https://docs.docker.com/build/bake/) - Containerization and orchestration
 - [Neon](https://neon.tech/) - Serverless Postgres
 - [Better Auth](https://www.better-auth.com/) - Authentication Made Easy
 - [Vercel](https://vercel.com/) - Deployment

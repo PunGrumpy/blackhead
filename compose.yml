@@ -1,0 +1,12 @@
+services:
+  web:
+    container_name: blackhead-web
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    platform: linux/amd64
+    restart: unless-stopped # Restart the container unless it was explicitly stopped
+    env_file:
+      - apps/web/.env.local
+    ports:
+      - "3000:3000"
