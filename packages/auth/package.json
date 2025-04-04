@@ -2,6 +2,11 @@
   "name": "@repo/auth",
   "version": "0.0.0",
   "private": true,
+  "exports": {
+    "./client": "./client.ts",
+    "./server": "./server.ts",
+    "./keys": "./keys.ts"
+  },
   "scripts": {
     "generate": "bunx --bun @better-auth/cli generate --output ../database/schema.ts --config ./server.ts",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
