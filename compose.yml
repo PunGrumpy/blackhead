@@ -1,5 +1,19 @@
 services:
+  api:
+    container_name: blackhead-api
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    platform: linux/amd64
+    restart: unless-stopped # Restart the container unless it was explicitly stopped
+    env_file:
+      - apps/api/.env.local
+    ports:
+      - '3001:3001'
+
   web:
+    depends_on:
+      - api
     container_name: blackhead-web
     build:
       context: .
@@ -9,4 +23,4 @@ services:
     env_file:
       - apps/web/.env.local
     ports:
-      - "3000:3000"
+      - '3000:3000'
