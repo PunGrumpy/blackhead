@@ -23,7 +23,7 @@
       "packages/ui/components/ui/**",
       "packages/ui/lib/**",
       "packages/ui/hooks/**",
-      "packages/database/generated/**"
+      "packages/database/migrations/**"
     ]
   }
 }
