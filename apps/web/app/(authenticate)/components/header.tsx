@@ -15,7 +15,10 @@ export const Header = () => {
     <header className="container mx-auto flex h-full min-h-16 px-6">
       <Link
         href="/"
-        className={cn('flex items-center space-x-2', isScroll && 'fixed top-4')}
+        className={cn(
+          'flex items-center space-x-2',
+          isScroll && 'fixed top-4 z-10'
+        )}
       >
         <div
           className={cn(
