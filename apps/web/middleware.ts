@@ -1,5 +1,19 @@
-import { authMiddleware } from '@repo/auth/middleware'
-import type { NextRequest } from 'next/server'
+import { getSessionCookie } from '@repo/auth/middleware'
+import { type NextRequest, NextResponse } from 'next/server'
+
+const isProtectedRoute = (request: NextRequest) => {
+  return request.url.includes('/dashboard')
+}
+
+const authMiddleware = (request: NextRequest) => {
+  const session = getSessionCookie(request)
+
+  if (isProtectedRoute(request) && !session) {
+    return NextResponse.redirect(new URL('/login', request.url))
+  }
+
+  return NextResponse.next()
+}
 
 export function middleware(request: NextRequest) {
   return authMiddleware(request)
