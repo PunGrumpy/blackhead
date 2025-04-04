@@ -1,0 +1,33 @@
+app:
+  - changed-files:
+      - any-glob-to-any-file: 'apps/**'
+
+auth:
+  - changed-files:
+      - any-glob-to-any-file: 'packages/auth/**'
+
+database:
+  - changed-files:
+      - any-glob-to-any-file: 'packages/database/**'
+
+next-config:
+  - changed-files:
+      - any-glob-to-any-file: 'packages/next-config/**'
+  - changed-files:
+      - any-glob-to-any-file: '**next.config.(js|ts|mjs)'
+
+observability:
+  - changed-files:
+      - any-glob-to-any-file: 'packages/observability/**'
+
+typescript-config:
+  - changed-files:
+      - any-glob-to-any-file: 'packages/typescript-config/**'
+  - changed-files:
+      - any-glob-to-any-file: '**tsconfig.json'
+  - changed-files:
+      - any-glob-to-any-file: '**tsconfig.*.json'
+
+ui:
+  - changed-files:
+      - any-glob-to-any-file: 'packages/ui/**'
