@@ -9,7 +9,7 @@
     "lint": "ultracite lint",
     "format": "ultracite format",
     "typecheck": "turbo run typecheck",
-    "bump-deps": "bunx --bun npm-check-updates --deep -u && bun install",
+    "bump-deps": "bunx --bun npm-check-updates --deep -u -x \"react-day-picker\" && bun install",
     "bump-ui": "bunx --bun shadcn@canary add --all --overwrite -c packages/ui",
     "clean": "git clean -xdf node_modules full",
     "auth:generate": "cd packages/auth && bun run generate",
