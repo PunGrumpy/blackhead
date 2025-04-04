@@ -52,10 +52,19 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
                     : 'Could not find error'}
                 </p>
                 <div className="flex gap-2">
-                  <Button size="sm" onClick={() => reset()}>
+                  <Button
+                    size="sm"
+                    onClick={() => reset()}
+                    aria-label="Try again"
+                  >
                     Try again
                   </Button>
-                  <Button size="sm" variant="outline">
+                  <Button
+                    asChild
+                    size="sm"
+                    variant="outline"
+                    aria-label="Go to home page"
+                  >
                     <Link href={env.NEXT_PUBLIC_WEB_URL}>Go to home</Link>
                   </Button>
                 </div>
