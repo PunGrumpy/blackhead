@@ -1,7 +1,6 @@
 'use client'
 
 import { NavigationItems } from '@/lib/navigation'
-import { ThemeSwitcher } from '@repo/ui/components/theme-toggle'
 import { Button } from '@repo/ui/components/ui/button'
 import {
   NavigationMenu,
@@ -17,6 +16,7 @@ import { MoveRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { AuthButtons } from './auth-buttons'
 import { MobileMenu } from './mobile-menu'
 
 export const Header = () => {
@@ -138,14 +138,9 @@ export const Header = () => {
           </NavigationMenu>
         </div>
 
-        <div className="flex items-center space-x-2">
-          <div className="hidden w-32 justify-end space-x-2 md:flex">
-            <Button variant="outline" size="sm" asChild>
-              <Link href="/login">Log In</Link>
-            </Button>
-            <Button size="sm" asChild>
-              <Link href="/signup">Sign Up</Link>
-            </Button>
+        <div className="flex items-center">
+          <div className="hidden items-center justify-end gap-3 md:flex">
+            <AuthButtons />
           </div>
 
           <Button
@@ -177,44 +172,7 @@ export const Header = () => {
         </div>
       </div>
 
-      {isMobileMenuOpen && (
-        <div className="z-50 h-dvh bg-background px-6 pt-4 md:hidden">
-          <div className="flex w-full flex-col space-y-4">
-            <Button size="lg" className="w-full" asChild>
-              <Link href="/login">Log In</Link>
-            </Button>
-            <Button variant="outline" size="lg" className="w-full">
-              <Link href="/signup">Sign Up</Link>
-            </Button>
-          </div>
-
-          <div className="space-y-1 pt-6 pb-3">
-            {NavigationItems.map((item, index) => (
-              <div key={index} className="py-1">
-                {item.href ? (
-                  <Link
-                    href={item.href}
-                    className="block rounded-md px-3 py-2 font-medium hover:bg-muted"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.title}
-                  </Link>
-                ) : (
-                  <MobileMenu
-                    item={item}
-                    setIsMobileMenuOpen={setIsMobileMenuOpen}
-                  />
-                )}
-              </div>
-            ))}
-          </div>
-
-          <div className="flex items-center justify-between border-y px-3 py-4">
-            <p className="text-muted-foreground">Theme</p>
-            <ThemeSwitcher />
-          </div>
-        </div>
-      )}
+      <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
     </header>
   )
 }
