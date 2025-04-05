@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "*",
+    "@repo/analytics": "*",
     "@tailwindcss/postcss": "^4.1.1",
     "@types/node": "^22.14.0",
     "@types/react": "19.1.0",
