@@ -1,6 +1,6 @@
 import { auth } from '@repo/auth/server'
 import { headers } from 'next/headers'
-import { unauthorized } from 'next/navigation'
+import { redirect } from 'next/navigation'
 import type { ReactNode } from 'react'
 
 interface DashboardLayoutProps {
@@ -16,7 +16,7 @@ export default async function DashboardLayout({
   })
 
   if (!session) {
-    unauthorized()
+    redirect('/login') // Redirect to login if not logged in
   }
 
   return <>{children}</>
