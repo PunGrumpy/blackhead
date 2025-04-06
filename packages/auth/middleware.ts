@@ -1,5 +1,6 @@
-import { getSessionCookie } from 'better-auth/cookies'
+import { betterFetch } from '@better-fetch/fetch'
 import { type NextRequest, NextResponse } from 'next/server'
+import type { auth } from './server'
 
 const isProtectedRoute = (request: NextRequest) => {
   const url = new URL(request.url)
@@ -8,8 +9,18 @@ const isProtectedRoute = (request: NextRequest) => {
   return pathname.includes('/dashboard')
 }
 
-export const authMiddleware = (request: NextRequest) => {
-  const session = getSessionCookie(request)
+type Session = typeof auth.$Infer.Session
+
+export const authMiddleware = async (request: NextRequest) => {
+  const { data: session } = await betterFetch<Session>(
+    '/api/auth/get-session',
+    {
+      baseURL: request.nextUrl.origin,
+      headers: {
+        cookie: request.headers.get('cookie') || '' // Forward the cookies from the request
+      }
+    }
+  )
 
   if (isProtectedRoute(request) && !session) {
     return NextResponse.redirect(new URL('/login', request.url))
