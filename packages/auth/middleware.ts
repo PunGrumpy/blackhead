@@ -2,7 +2,10 @@ import { getSessionCookie } from 'better-auth/cookies'
 import { type NextRequest, NextResponse } from 'next/server'
 
 const isProtectedRoute = (request: NextRequest) => {
-  return request.url.includes('/dashboard')
+  const url = new URL(request.url)
+  const pathname = url.pathname
+
+  return pathname.startsWith('/dashboard')
 }
 
 export const authMiddleware = (request: NextRequest) => {
