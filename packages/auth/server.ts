@@ -13,6 +13,14 @@ export const auth = betterAuth({
     disableSignUp: true // Disable sign up for now
   },
   socialProviders: {
+    github: {
+      clientId: keys().GITHUB_CLIENT_ID,
+      clientSecret: keys().GITHUB_CLIENT_SECRET
+    },
+    gitlab: {
+      clientId: keys().GITLAB_CLIENT_ID,
+      clientSecret: keys().GITLAB_CLIENT_SECRET
+    },
     google: {
       clientId: keys().GOOGLE_CLIENT_ID,
       clientSecret: keys().GOOGLE_CLIENT_SECRET
