@@ -5,7 +5,7 @@ const isProtectedRoute = (request: NextRequest) => {
   const url = new URL(request.url)
   const pathname = url.pathname
 
-  return pathname.startsWith('/dashboard')
+  return pathname.includes('/dashboard')
 }
 
 export const authMiddleware = (request: NextRequest) => {
