@@ -63,9 +63,9 @@ export const AuthButtons = () => {
           align="end"
         >
           <DropdownMenuLabel className="flex flex-col gap-1 px-2 py-2">
-            {session.user.name || 'User Name'}
+            {session?.user?.name || 'User Name'}
             <p className="text-muted-foreground">
-              {session.user.email || 'example@blackhead.com'}
+              {session?.user?.email || 'example@blackhead.com'}
             </p>
           </DropdownMenuLabel>
 
@@ -123,7 +123,11 @@ export const AuthButtons = () => {
           <DropdownMenuSeparator />
 
           <div className="p-2">
-            <Button className="w-full">{routes.dashboard.upgrade.label}</Button>
+            <Button asChild className="w-full">
+              <Link href={routes.dashboard.upgrade.path}>
+                {routes.dashboard.upgrade.label}
+              </Link>
+            </Button>
           </div>
         </DropdownMenuContent>
       </DropdownMenu>
