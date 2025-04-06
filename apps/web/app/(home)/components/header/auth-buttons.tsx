@@ -1,5 +1,6 @@
 'use client'
 
+import { routes } from '@/lib/routes'
 import { signOut, useSession } from '@repo/auth/client'
 import { ThemeSwitcher } from '@repo/ui/components/theme-toggle'
 import {
@@ -17,7 +18,6 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger
 } from '@repo/ui/components/ui/dropdown-menu'
-import { LogOut, PlusCircle } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
@@ -30,10 +30,10 @@ export const AuthButtons = () => {
     return (
       <>
         <Button variant="outline" asChild>
-          <Link href="/login">Log In</Link>
+          <Link href={routes.auth.login.path}>{routes.auth.login.label}</Link>
         </Button>
         <Button asChild>
-          <Link href="/signup">Sign Up</Link>
+          <Link href={routes.auth.signup.path}>{routes.auth.signup.label}</Link>
         </Button>
       </>
     )
@@ -42,7 +42,9 @@ export const AuthButtons = () => {
   return (
     <>
       <Button variant="outline" asChild>
-        <Link href="/dashboard">Dashboard</Link>
+        <Link href={routes.dashboard.index.path}>
+          {routes.dashboard.index.label}
+        </Link>
       </Button>
       <DropdownMenu modal={false}>
         <DropdownMenuTrigger asChild>
@@ -68,21 +70,26 @@ export const AuthButtons = () => {
           </DropdownMenuLabel>
 
           <DropdownMenuItem asChild className="py-2.5 text-muted-foreground">
-            <Link href="/dashboard" className="cursor-pointer">
-              Dashboard
+            <Link href={routes.dashboard.index.path} className="cursor-pointer">
+              {routes.dashboard.index.label}
             </Link>
           </DropdownMenuItem>
 
           <DropdownMenuItem asChild className="py-2.5 text-muted-foreground">
-            <Link href="/settings" className="cursor-pointer">
-              Account Settings
+            <Link
+              href={routes.dashboard.settings.path}
+              className="cursor-pointer"
+            >
+              {routes.dashboard.settings.label}
             </Link>
           </DropdownMenuItem>
 
           <DropdownMenuItem className="group cursor-pointer py-2.5 text-muted-foreground">
-            Create Team
+            {routes.dashboard.createTeam.label}
             <DropdownMenuShortcut>
-              <PlusCircle className="h-4 w-4 group-hover:text-accent-foreground" />
+              {routes.dashboard.createTeam.icon && (
+                <routes.dashboard.createTeam.icon className="h-4 w-4 group-hover:text-accent-foreground" />
+              )}
             </DropdownMenuShortcut>
           </DropdownMenuItem>
 
@@ -100,21 +107,23 @@ export const AuthButtons = () => {
             onClick={() =>
               signOut({
                 fetchOptions: {
-                  onSuccess: () => router.push('/login')
+                  onSuccess: () => router.push(routes.auth.login.path)
                 }
               })
             }
           >
-            Logout
+            {routes.auth.logout.label}
             <DropdownMenuShortcut>
-              <LogOut className="h-4 w-4 group-hover:text-accent-foreground" />
+              {routes.auth.logout.icon && (
+                <routes.auth.logout.icon className="h-4 w-4 group-hover:text-accent-foreground" />
+              )}
             </DropdownMenuShortcut>
           </DropdownMenuItem>
 
           <DropdownMenuSeparator />
 
           <div className="p-2">
-            <Button className="w-full ">Upgrade to Pro</Button>
+            <Button className="w-full">{routes.dashboard.upgrade.label}</Button>
           </div>
         </DropdownMenuContent>
       </DropdownMenu>

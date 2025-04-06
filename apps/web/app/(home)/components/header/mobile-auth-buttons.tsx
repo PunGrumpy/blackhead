@@ -1,6 +1,6 @@
 'use client'
 
-import { Gear, Layout, PlusCircle } from '@phosphor-icons/react'
+import { routes } from '@/lib/routes'
 import { signOut, useSession } from '@repo/auth/client'
 import { ThemeSwitcher } from '@repo/ui/components/theme-toggle'
 import {
@@ -21,10 +21,10 @@ export const MobileAuthButtons = () => {
     return (
       <>
         <Button size="lg" className="w-full" asChild>
-          <Link href="/login">Log In</Link>
+          <Link href={routes.auth.login.path}>{routes.auth.login.label}</Link>
         </Button>
         <Button variant="outline" size="lg" className="w-full" asChild>
-          <Link href="/signup">Sign Up</Link>
+          <Link href={routes.auth.signup.path}>{routes.auth.signup.label}</Link>
         </Button>
       </>
     )
@@ -33,10 +33,12 @@ export const MobileAuthButtons = () => {
   return (
     <>
       <Button size="lg" className="w-full" asChild>
-        <Link href="/dashboard">Upgrade to Pro</Link>
+        <Link href={routes.dashboard.upgrade.path}>
+          {routes.dashboard.upgrade.label}
+        </Link>
       </Button>
       <Button variant="outline" size="lg" className="w-full" asChild>
-        <Link href="/settings">Contact</Link>
+        <Link href={routes.contact.path}>{routes.contact.label}</Link>
       </Button>
 
       <div className="space-y-1">
@@ -55,18 +57,28 @@ export const MobileAuthButtons = () => {
           </div>
 
           <div className="flex items-center justify-between p-3">
-            <Link href="/dashboard">Dashboard</Link>
-            <Layout className="h-5 w-5" />
+            <Link href={routes.dashboard.index.path}>
+              {routes.dashboard.index.label}
+            </Link>
+            {routes.dashboard.index.icon && (
+              <routes.dashboard.index.icon className="h-5 w-5" />
+            )}
           </div>
 
           <div className="flex items-center justify-between p-3">
-            <Link href="/settings">Settings</Link>
-            <Gear className="h-5 w-5" />
+            <Link href={routes.dashboard.settings.path}>
+              {routes.dashboard.settings.label}
+            </Link>
+            {routes.dashboard.settings.icon && (
+              <routes.dashboard.settings.icon className="h-5 w-5" />
+            )}
           </div>
 
           <div className="flex items-center justify-between p-3">
-            Create Team
-            <PlusCircle className="h-5 w-5" />
+            {routes.dashboard.createTeam.label}
+            {routes.dashboard.createTeam.icon && (
+              <routes.dashboard.createTeam.icon className="h-5 w-5" />
+            )}
           </div>
 
           <div className="flex items-center justify-between px-3 py-2 text-muted-foreground">
@@ -81,13 +93,13 @@ export const MobileAuthButtons = () => {
                 await signOut({
                   fetchOptions: {
                     onSuccess: () => {
-                      router.push('/login')
+                      router.push(routes.auth.login.path)
                     }
                   }
                 })
               }}
             >
-              Log Out
+              {routes.auth.logout.label}
             </button>
           </div>
         </div>
