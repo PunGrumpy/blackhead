@@ -12,19 +12,23 @@ const isProtectedRoute = (request: NextRequest) => {
 type Session = typeof auth.$Infer.Session
 
 export const authMiddleware = async (request: NextRequest) => {
-  const { data: session } = await betterFetch<Session>(
-    '/api/auth/get-session',
-    {
-      baseURL: request.nextUrl.origin,
-      headers: {
-        cookie: request.headers.get('cookie') || '' // Forward the cookies from the request
+  try {
+    const { data: session } = await betterFetch<Session>(
+      '/api/auth/get-session',
+      {
+        baseURL: request.nextUrl.origin,
+        headers: {
+          cookie: request.headers.get('cookie') || '' // Forward the cookies from the request
+        }
       }
-    }
-  )
+    )
 
-  if (isProtectedRoute(request) && !session) {
+    if (isProtectedRoute(request) && !session) {
+      return NextResponse.redirect(new URL('/login', request.url))
+    }
+
+    return NextResponse.next()
+  } catch (_error) {
     return NextResponse.redirect(new URL('/login', request.url))
   }
-
-  return NextResponse.next()
 }
