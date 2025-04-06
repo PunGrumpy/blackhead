@@ -18,14 +18,5 @@ export const auth = betterAuth({
       clientSecret: keys().GOOGLE_CLIENT_SECRET
     }
   },
-  advanced: {
-    defaultCookieAttributes: {
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      path: '/',
-      httpOnly: true
-    }
-  },
-  trustedOrigins: [keys().NEXT_PUBLIC_WEB_URL, keys().VERCEL_URL || ''],
   plugins: [nextCookies()]
 })
