@@ -1,6 +1,6 @@
 import { auth } from '@repo/auth/server'
 import { headers } from 'next/headers'
-import { RedirectType, redirect } from 'next/navigation'
+import { redirect } from 'next/navigation'
 import type { ReactNode } from 'react'
 import { Footer } from './components/footer'
 import { Header } from './components/header'
@@ -16,7 +16,7 @@ export default async function AuthLayout({ children }: AuthLayoutProps) {
   })
 
   if (session) {
-    redirect('/dashboard', RedirectType.replace) // Redirect to dashboard if already logged in
+    redirect('/dashboard') // Redirect to dashboard if already logged in
   }
 
   return (
