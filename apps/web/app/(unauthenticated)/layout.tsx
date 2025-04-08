@@ -22,7 +22,9 @@ export default async function AuthLayout({ children }: AuthLayoutProps) {
   return (
     <>
       <Header />
-      {children}
+      <main className="flex min-h-[calc(100vh-64px)] flex-col items-stretch">
+        {children}
+      </main>
       <Footer />
     </>
   )

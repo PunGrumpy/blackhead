@@ -31,7 +31,8 @@ export const SignUp = () => {
       firstName: '',
       lastName: '',
       email: '',
-      password: ''
+      password: '',
+      confirmPassword: ''
     }
   })
 
@@ -59,7 +60,7 @@ export const SignUp = () => {
   }
 
   return (
-    <div className="relative flex h-full min-h-[calc(100vh-64px)] w-full shrink grow flex-col content-center items-center justify-center gap-6 p-6">
+    <div className="flex w-full flex-1 flex-col items-center justify-center gap-6 p-6">
       <div className="mx-auto flex min-w-xl max-w-xl flex-col rounded-xl border bg-card/10 shadow">
         <div className="space-y-8 p-16 pb-12">
           <h1 className="text-center font-semibold text-3xl">
@@ -122,6 +123,19 @@ export const SignUp = () => {
                     <FormLabel>Password</FormLabel>
                     <FormControl>
                       <PasswordInput showStrengthIndicator {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="confirmPassword"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Confirm Password</FormLabel>
+                    <FormControl>
+                      <PasswordInput {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

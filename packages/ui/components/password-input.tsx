@@ -11,10 +11,12 @@ import { Input } from './ui/input'
 
 interface PasswordInputProps extends Omit<ComponentProps<'input'>, 'type'> {
   showStrengthIndicator?: boolean
+  disabled?: boolean
 }
 
 export function PasswordInput({
   showStrengthIndicator = false,
+  disabled = false,
   ...props
 }: PasswordInputProps) {
   const [password, setPassword] = useState('')
@@ -94,6 +96,7 @@ export function PasswordInput({
             type={isVisible ? 'text' : 'password'}
             value={password}
             onChange={e => setPassword(e.target.value)}
+            disabled={disabled}
             aria-describedby={
               shouldShowStrengthIndicator ? 'password-strength' : undefined
             }
@@ -102,6 +105,7 @@ export function PasswordInput({
             className="absolute inset-y-px end-px flex h-full w-9 items-center justify-center rounded-e-lg text-muted-foreground/80 transition-shadow hover:text-foreground focus-visible:border focus-visible:border-ring focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
             type="button"
             onClick={toggleVisibility}
+            disabled={disabled}
             aria-label={isVisible ? 'Hide password' : 'Show password'}
             aria-pressed={isVisible}
             aria-controls="password"
