@@ -1,4 +1,7 @@
 import { database } from '@repo/database'
+import { resend } from '@repo/email'
+import { PasswordResetEmail } from '@repo/email/templates/password-reset'
+import { VerificationEmail } from '@repo/email/templates/verification'
 import { betterAuth } from 'better-auth'
 import { drizzleAdapter } from 'better-auth/adapters/drizzle'
 import { nextCookies } from 'better-auth/next-js'
@@ -10,7 +13,47 @@ export const auth = betterAuth({
   }),
   emailAndPassword: {
     enabled: true,
-    disableSignUp: true // Disable sign up for now
+    disableSignUp: true, // Disable sign up for now
+    requireEmailVerification: true,
+    sendResetPassword: async ({ user, url }) => {
+      await resend.emails.send({
+        from: keys().RESEND_FROM,
+        to: user.email,
+        tags: [
+          {
+            name: 'password',
+            value: 'reset'
+          }
+        ],
+        subject: 'Reset your password',
+        react: PasswordResetEmail({
+          email: user.email,
+          url: url
+        })
+      })
+    }
+  },
+  emailVerification: {
+    sendOnSignUp: true,
+    requireEmailVerification: true,
+    expiresIn: 60 * 60 * 24, // 1 day
+    sendVerificationEmail: async ({ user, url }) => {
+      await resend.emails.send({
+        from: keys().RESEND_FROM,
+        to: user.email,
+        tags: [
+          {
+            name: 'verification',
+            value: 'email'
+          }
+        ],
+        subject: 'Verify your email',
+        react: VerificationEmail({
+          email: user.email,
+          url: url
+        })
+      })
+    }
   },
   socialProviders: {
     github: {

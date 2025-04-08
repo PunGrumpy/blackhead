@@ -55,66 +55,80 @@ export const LogInEmail = () => {
   }
 
   return (
-    <div className="relative flex h-full min-h-[calc(100vh-64px)] w-full shrink grow flex-col content-center items-center justify-center gap-6 p-6">
-      <div className="mx-auto mb-4 max-w-md text-center">
-        <h1 className="font-semibold text-3xl">Log In to Blackhead</h1>
+    <>
+      <div className="flex w-full flex-1 flex-col items-center justify-center gap-6 p-6">
+        <div className="mx-auto mb-4 max-w-md text-center">
+          <h1 className="font-semibold text-3xl">Log In to Blackhead</h1>
+        </div>
+        <div className="mx-auto w-full max-w-80 space-y-4">
+          {generalError && (
+            <Alert variant="destructive" className="flex bg-destructive/15">
+              <AlertCircle className="inline-block size-4" />
+              {generalError}
+            </Alert>
+          )}
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Email" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Password</FormLabel>
+                    <FormControl>
+                      <PasswordInput {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <Button
+                type="submit"
+                variant={form.formState.isValid ? 'default' : 'outline'}
+                size="lg"
+                className="mt-4 w-full"
+                disabled={
+                  form.formState.isSubmitting || !form.formState.isValid
+                }
+              >
+                {form.formState.isSubmitting ? 'Signing up...' : 'Continue'}
+              </Button>
+            </form>
+          </Form>
+        </div>
+        <div className="flex items-center justify-center">
+          <Button
+            variant="link"
+            asChild
+            className="text-blue-500 text-sm hover:text-blue-600"
+          >
+            <Link href="/login">← Other Login Options</Link>
+          </Button>
+        </div>
       </div>
-      <div className="mx-auto w-full max-w-80 space-y-4">
-        {generalError && (
-          <Alert variant="destructive" className="flex bg-destructive/15">
-            <AlertCircle className="inline-block size-4" />
-            {generalError}
-          </Alert>
-        )}
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Email" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Password</FormLabel>
-                  <FormControl>
-                    <PasswordInput {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button
-              type="submit"
-              variant={form.formState.isValid ? 'default' : 'outline'}
-              size="lg"
-              className="mt-4 w-full"
-              disabled={form.formState.isSubmitting || !form.formState.isValid}
-            >
-              {form.formState.isSubmitting ? 'Signing up...' : 'Continue'}
-            </Button>
-          </form>
-        </Form>
-      </div>
-      <div className="flex items-center justify-center">
+
+      <div className="flex w-full items-center justify-center gap-6 border-t p-7">
         <Button
           variant="link"
           asChild
           className="text-blue-500 text-sm hover:text-blue-600"
         >
-          <Link href="/login">← Other Login Options</Link>
+          <Link href="/forgot-password">Forgot password?</Link>
         </Button>
       </div>
-    </div>
+    </>
   )
 }

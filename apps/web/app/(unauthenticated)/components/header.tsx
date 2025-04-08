@@ -40,13 +40,12 @@ export const Header = () => {
       <nav className="flex flex-1 flex-row items-center justify-end">
         <div className="flex flex-initial flex-row items-center justify-end gap-2">
           <Button
-            size="sm"
             asChild
             className="bg-transparent text-muted-foreground hover:bg-transparent hover:text-muted-foreground"
           >
             <Link href="/contact">Contact</Link>
           </Button>
-          <Button variant="outline" size="sm" asChild>
+          <Button variant="outline" asChild>
             {pathname.includes('login') ? (
               <Link href="/signup">Sign Up</Link>
             ) : (

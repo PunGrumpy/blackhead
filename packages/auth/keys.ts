@@ -1,10 +1,10 @@
-import { keys as core } from '@repo/next-config/keys'
+import { keys as email } from '@repo/email/keys'
 import { createEnv } from '@t3-oss/env-nextjs'
 import { z } from 'zod'
 
 export const keys = () =>
   createEnv({
-    extends: [core()],
+    extends: [email()],
     server: {
       BETTER_AUTH_SECRET: z.string().min(1),
       DATABASE_URL: z.string().url().min(1),

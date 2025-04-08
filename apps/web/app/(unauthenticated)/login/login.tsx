@@ -7,7 +7,7 @@ import { toast } from 'sonner'
 
 export const LogIn = () => {
   return (
-    <div className="relative flex h-full min-h-[calc(100vh-64px)] w-full shrink grow flex-col content-center items-center justify-center gap-6 p-6">
+    <div className="flex w-full flex-1 flex-col items-center justify-center gap-6 p-6">
       <div className="mx-auto mb-4 max-w-md text-center">
         <h1 className="font-semibold text-3xl">Log in to Blackhead</h1>
       </div>
