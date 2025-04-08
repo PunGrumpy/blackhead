@@ -2,6 +2,10 @@ app:
   - changed-files:
       - any-glob-to-any-file: 'apps/**'
 
+analytics:
+  - changed-files:
+      - any-glob-to-any-file: 'packages/analytics/**'
+
 auth:
   - changed-files:
       - any-glob-to-any-file: 'packages/auth/**'
@@ -9,6 +13,10 @@ auth:
 database:
   - changed-files:
       - any-glob-to-any-file: 'packages/database/**'
+
+email:
+  - changed-files:
+      - any-glob-to-any-file: 'packages/email/**'
 
 next-config:
   - changed-files:
