@@ -29,7 +29,7 @@ export function CodeBlock({
   return (
     <div
       className={cn(
-        'flex h-auto w-full items-center justify-between gap-2 whitespace-pre-wrap rounded-md border bg-background px-6 py-2 text-foreground text-sm shadow-sm',
+        'flex h-auto w-full items-center justify-between gap-2 whitespace-pre-wrap rounded-md border bg-background px-3 py-2 text-foreground text-sm shadow-sm',
         className
       )}
     >
