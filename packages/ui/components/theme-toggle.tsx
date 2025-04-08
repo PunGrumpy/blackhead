@@ -53,7 +53,7 @@ export function ThemeSwitcher() {
             {isActive && (
               <motion.div
                 layoutId="activeTheme"
-                className="absolute inset-0 rounded-full bg-muted/40 ring-1 ring-border"
+                className="absolute inset-0 rounded-full bg-muted/50 ring-1 ring-border"
                 transition={{ type: 'spring', duration: 0.5 }}
               />
             )}
