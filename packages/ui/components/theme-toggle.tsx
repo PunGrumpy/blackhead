@@ -1,7 +1,6 @@
 'use client'
 
 import { Monitor, Moon, Sun } from 'lucide-react'
-import { motion } from 'motion/react'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 import { cn } from '../lib/utils'
@@ -51,10 +50,9 @@ export function ThemeSwitcher() {
             aria-label={label}
           >
             {isActive && (
-              <motion.div
-                layoutId="activeTheme"
+              <div
+                id="theme-switcher-indicator"
                 className="absolute inset-0 rounded-full bg-muted/50 ring-1 ring-border"
-                transition={{ type: 'spring', duration: 0.5 }}
               />
             )}
             <Icon
