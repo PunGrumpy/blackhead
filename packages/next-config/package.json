@@ -13,6 +13,6 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "*",
-    "next": "^15.2.4"
+    "next": "^15.2.5"
   }
 }
