@@ -15,6 +15,13 @@
       "when": 1743792353431,
       "tag": "0001_optimal_squirrel_girl",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1744187069801,
+      "tag": "0002_workable_goblin_queen",
+      "breakpoints": true
     }
   ]
 }

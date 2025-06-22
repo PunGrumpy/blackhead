@@ -18,11 +18,13 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger
 } from '@repo/ui/components/ui/dropdown-menu'
+import { Bell } from 'lucide-react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 export const AuthButtons = () => {
   const router = useRouter()
+  const pathname = usePathname()
   const { data: session } = useSession()
   const isLoggedIn = !!session?.user
 
@@ -41,11 +43,17 @@ export const AuthButtons = () => {
 
   return (
     <>
-      <Button variant="outline" asChild>
-        <Link href={routes.dashboard.index.path}>
-          {routes.dashboard.index.label}
-        </Link>
-      </Button>
+      {pathname === '/' || pathname === '/home' ? (
+        <Button variant="outline" asChild>
+          <Link href={routes.dashboard.index.path}>
+            {routes.dashboard.index.label}
+          </Link>
+        </Button>
+      ) : (
+        <Button variant="outline" size="icon" className="h-8 w-8 rounded-full">
+          <Bell className="h-4 w-4" />
+        </Button>
+      )}
       <DropdownMenu modal={false}>
         <DropdownMenuTrigger asChild>
           <Avatar className="h-8 w-8 cursor-pointer">
